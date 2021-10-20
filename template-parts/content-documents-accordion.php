@@ -11,7 +11,7 @@
 
 <div class="tab w-full overflow-hidden">
 	<input class="absolute opacity-0" id="<?php the_ID(); ?>" type="radio" name="tabs2">
-	<label class="block p-5 leading-normal cursor-pointer font-semibold font-semibold" for="<?php the_ID(); ?>"><?php the_title(); ?></label>
+	<label class="block p-5 leading-normal cursor-pointer font-semi font-semibold" for="<?php the_ID(); ?>"><?php the_title(); ?></label>
 	<div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-blue-500 leading-normal">
 		<?php if ( is_archive() ) : ?>
 			<?php
