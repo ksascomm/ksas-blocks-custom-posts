@@ -11,17 +11,17 @@
 
 <div class="tab w-full overflow-hidden">
 	<input class="absolute opacity-0" id="<?php the_ID(); ?>" type="radio" name="tabs2">
-	<label class="block p-5 leading-normal cursor-pointer font-semibold" for="<?php the_ID(); ?>"><?php the_title(); ?></label>
+	<label class="block p-5 leading-normal cursor-pointer font-semibold font-semibold" for="<?php the_ID(); ?>"><?php the_title(); ?></label>
 	<div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-blue-500 leading-normal">
-		<?php if ( is_archive() ): ?>
-			<?php 
-				$field  = get_field_object( 'primary_section' );
+		<?php if ( is_archive() ) : ?>
+			<?php
+				$field = get_field_object( 'primary_section' );
 				$value = $field['value'];
-				$label = $field['choices'][ $value ];?>
-				<h3>Filed Under: 
-				
-					<span class="capitalize"><?php echo esc_html($label); ?></span>
-				</h3>
+				$label = $field['choices'][ $value ];
+			?>
+			<h3>Filed Under: 
+				<span class="capitalize"><?php echo esc_html( $label ); ?></span>
+			</h3>
 		<?php endif; ?>
 		<?php the_content(); ?>
 		<?php if ( get_field( 'document_upload' ) ) : ?>
