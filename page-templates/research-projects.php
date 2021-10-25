@@ -38,7 +38,7 @@ $flagship_researchprojects_query = new WP_Query(
 
 	endwhile; // End of the loop.
 	?>
-	<div class="research-projects bg-grey-lightest border-solid border-grey border-2 p-4 mb-4" role="region" aria-label="Filters">
+	<div class="isotope-to-sort bg-grey-lightest border-solid border-grey border-2 p-4 mb-4" role="region" aria-label="Filters">
 		<h3 class="text-2xl -mt-2">Filter by Project Type or Research Area:</h3>
 		<div class="flex flex-col md:flex-row justify-around" id="filters">
 			<?php
@@ -52,7 +52,7 @@ $flagship_researchprojects_query = new WP_Query(
 			);
 			?>
 			<?php foreach ( $projects as $project ) : ?>
-				<a class="all button bg-blue text-white hover:bg-blue-light hover:text-primary" href="javascript:void(0)" data-filter=".<?php echo esc_html( $project->slug ); ?>" class="selected"><?php echo esc_html( $project->name ); ?></a>
+				<a class="all button bg-blue text-white hover:bg-blue-light hover:text-primary text-base p-1" href="javascript:void(0)" data-filter=".<?php echo esc_html( $project->slug ); ?>" class="selected"><?php echo esc_html( $project->name ); ?></a>
 			<?php endforeach; ?>
 		</div>
 		<h4>

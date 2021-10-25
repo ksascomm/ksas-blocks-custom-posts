@@ -156,37 +156,42 @@ input[type=color], input[type=date], input[type=datetime], input[type=email], in
   margin-right: auto;
 }
 
-/* IsotopeJS // Research Projects
+/* Research Projects
 --------------------------------------------- */
-.research-projects a.button {
-  padding: .25rem;
+.isotope-to-sort a.button {
   margin: 0 .25rem;
   text-align: center;
   font-family: Gentona-SemiBold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
   vertical-align: text-bottom;
-  font-size: 1rem;
   line-height: 1.2;
 }
 
-.site-main .research-projects a {
+.site-main .isotope-to-sort a {
   color: inherit;
 }
 
-.research-projects a.all.button {
+.isotope-to-sort a.all.button {
   --tw-text-opacity: 1;
   color: rgba(254, 254, 254, var(--tw-text-opacity));
 }
 
-.research-projects a.all.button:hover {
+.isotope-to-sort a.all.button:hover {
   --tw-text-opacity: 1;
   color: rgba(49, 38, 29, var(--tw-text-opacity));
 }
 
-.research-projects a.button {
+.isotope-to-sort a.button {
   color: #fefefe;
   border-bottom: 0;
 }
 
+.isotope-to-sort a.button.is-checked {
+  background-color: #68ace5;
+  color:#31261D;
+}
+
+/* Research Projects
+--------------------------------------------- */
 .research-project-card-outline {
   border-width: 2px;
   --tw-border-opacity: 1;

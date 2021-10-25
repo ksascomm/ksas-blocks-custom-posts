@@ -33,8 +33,21 @@ add_action( 'wp_enqueue_scripts', 'ksas_blocks_custom_posts_scripts' );
 	 * Note that this function is hooked into the wp_enqueue_scripts
 	 */
 function ksas_blocks_custom_posts_scripts() {
-	if ( is_page_template( 'page-templates/research-projects.php' ) ) :
+	if ( is_page_template( 'page-templates/research-projects.php' ) || is_page_template( 'page-templates/people-directory-sort.php' ) ) :
 		wp_enqueue_script( 'isotope-packaged', 'https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js', array(), '3.0.6', true );
 		wp_enqueue_script( 'isotope-js', get_stylesheet_directory_uri() . '/js/isotope.js', array( 'jquery' ), '1.0.0', true );
 	endif;
+}
+
+function get_the_roles( $post ) {
+	$roles = get_the_terms( $post->ID, 'role' );
+	if ( $roles && ! is_wp_error( $roles ) ) :
+		$role_names = array();
+		foreach ( $roles as $role ) {
+			$role_names[] = $role->slug;
+		}
+		$role_name = join( ' ', $role_names );
+
+		endif;
+		return $role_name;
 }
