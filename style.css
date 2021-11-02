@@ -42,10 +42,19 @@
   justify-content: space-around;
 }
 
-input[type=color], input[type=date], input[type=datetime], input[type=email], input[type=number], input[type=password], input[type=search], input[type=text], input[type=time], input[type=url] {
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="text"],
+input[type="time"],
+input[type="url"] {
   border: 1px solid #d6d6d6;
   border-radius: 3px;
-  color: #31261D;
+  color: #31261d;
   padding: 3px;
 }
 
@@ -131,10 +140,9 @@ input[type=color], input[type=date], input[type=datetime], input[type=email], in
 }
 
 .tab-content > * {
-	padding-left: 1.25rem; /*.p-5*/
-	padding-right: 1.25rem; /*.p-5*/
+  padding-left: 1.25rem; /*.p-5*/
+  padding-right: 1.25rem; /*.p-5*/
 }
-
 
 /* Documents
 --------------------------------------------- */
@@ -159,9 +167,10 @@ input[type=color], input[type=date], input[type=datetime], input[type=email], in
 /* Research Projects
 --------------------------------------------- */
 .isotope-to-sort a.button {
-  margin: 0 .25rem;
+  margin: 0 0.25rem;
   text-align: center;
-  font-family: Gentona-SemiBold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
+  font-family: Gentona-SemiBold, system-ui, BlinkMacSystemFont, -apple-system,
+    Segoe UI, sans-serif;
   vertical-align: text-bottom;
   line-height: 1.2;
 }
@@ -187,7 +196,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email], in
 
 .isotope-to-sort a.button.is-checked {
   background-color: #68ace5;
-  color:#31261D;
+  color: #31261d;
 }
 
 /* Research Projects
@@ -195,21 +204,23 @@ input[type=color], input[type=date], input[type=datetime], input[type=email], in
 .research-project-card-outline {
   border-width: 2px;
   --tw-border-opacity: 1;
-  border-color: rgba(237,242,247,var(--tw-border-opacity));
+  border-color: rgba(237, 242, 247, var(--tw-border-opacity));
   /* hex: #edf2f7*/
   --tw-shadow: 0 0 #0000;
-  box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .research-project-card ul {
-  margin-top: .5rem;
-  margin-bottom: .5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-inline-start: 0px;
 }
 
 .research-project-card ul > li {
   padding-left: 0;
-  margin-top: .5rem;
-  margin-bottom: .5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   line-height: 1.2;
 }
 
@@ -218,7 +229,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email], in
 }
 
 .research-project-card p {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   margin-bottom: 0;
 }
 
