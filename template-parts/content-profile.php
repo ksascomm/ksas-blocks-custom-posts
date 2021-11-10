@@ -19,7 +19,7 @@
 			the_post_thumbnail(
 				'large',
 				array(
-					'class' => 'alignleft max-w-sm',
+					'class' => 'md:float-left max-w-sm',
 					'alt'   => the_title_attribute(
 						array(
 							'echo' => false,

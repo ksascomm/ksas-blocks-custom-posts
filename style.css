@@ -70,6 +70,16 @@ input[type="url"] {
   padding: 1.5rem;
 }
 
+.max-w-sm {
+  max-width: 24rem;
+}
+
+@media (min-width: 768px) {
+  .md\:float-left {
+    float: left;
+  }
+}
+
 /* Accordion Tabs
 --------------------------------------------- */
 
@@ -164,7 +174,7 @@ input[type="url"] {
   margin-right: auto;
 }
 
-/* Research Projects
+/* Isotope
 --------------------------------------------- */
 .isotope-to-sort a.button {
   margin: 0 0.25rem;
@@ -235,4 +245,11 @@ input[type="url"] {
 
 .research-project-card h3 {
   font-size: 1.25rem;
+}
+
+/* Testimonials/Profiles
+--------------------------------------------- */
+.single-profile .profile img.wp-post-image {
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
 }
