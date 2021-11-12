@@ -10,7 +10,7 @@
 ?>
 
 
-<article id="post-<?php the_ID(); ?>" class="people item py-4 ml-4 w-full <?php echo esc_html( get_the_roles( $post ) ); ?>">
+<article id="post-<?php the_ID(); ?>" class="people item py-4 ml-4 w-full <?php echo esc_html( get_the_roles( $post ) ); ?> <?php echo esc_html( get_the_filters( $post ) ); ?>">
 
 <div class="flex flex-wrap lg:flex-nowrap">
 	<?php if ( has_post_thumbnail() ) : ?>
@@ -60,7 +60,6 @@
 			$email = get_post_meta( $post->ID, 'ecpt_email', true );
 			?>
 			<span class="fas fa-envelope" aria-hidden="true"></span> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;<?php echo email_munge( $email ); ?>">
-
 				<?php echo email_munge( $email ); ?> </a><br>
 		<?php endif; ?>
 

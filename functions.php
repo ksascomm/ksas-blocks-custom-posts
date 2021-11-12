@@ -39,6 +39,11 @@ function ksas_blocks_custom_posts_scripts() {
 	endif;
 }
 
+/**
+ * Create function to print Role taxonomy on people-sort template part
+ *
+ * @param int/object $post ID or object of the post.
+ */
 function get_the_roles( $post ) {
 	$roles = get_the_terms( $post->ID, 'role' );
 	if ( $roles && ! is_wp_error( $roles ) ) :
@@ -50,4 +55,23 @@ function get_the_roles( $post ) {
 
 		endif;
 		return $role_name;
+}
+/**
+ * Create function to print Filter taxonomy on people-sort template part
+ *
+ * @param int/object $post ID or object of the post.
+ */
+function get_the_filters( $post ) {
+	$directory_filters = get_the_terms( $post->ID, 'filter' );
+	if ( ! empty( $directory_filters ) ) {
+		if ( $directory_filters && ! is_wp_error( $directory_filters ) ) :
+			$directory_filter_names = array();
+			foreach ( $directory_filters as $directory_filter ) {
+				$directory_filter_names[] = $directory_filter->slug;
+			}
+			$directory_filter_name = join( ' ', $directory_filter_names );
+
+		endif;
+		return $directory_filter_name;
+	}
 }

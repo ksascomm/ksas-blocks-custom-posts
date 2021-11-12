@@ -26,9 +26,9 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-		<div class="isotope-to-sort bg-grey-lightest border-solid border-grey border-2 p-4 mb-4" role="region" aria-label="Filters">
-			<h3 class="text-2xl -mt-2">Filter by Position or Title:</h3>
-			<div class="flex flex-col md:flex-row justify-around" id="filters">
+		<div class="isotope-to-sort bg-grey-lightest border-solid border-grey border-2 p-4 mb-4" role="region" aria-label="Filters" id="filters">
+			<h3>Filter by Position or Title:</h3>
+			<div class="flex flex-col md:flex-row justify-start">
 				<?php
 				$positions = get_terms(
 					'role',
@@ -43,6 +43,24 @@ get_header();
 					<a class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary p-2" href="javascript:void(0)" data-filter=".<?php echo esc_html( $position->slug ); ?>" class="selected"><?php echo esc_html( $position->name ); ?></a>
 				<?php endforeach; ?>
 			</div>
+			<?php
+			$filters = get_terms(
+				'filter',
+				array(
+					'orderby'    => 'slug',
+					'order'      => 'ASC',
+					'hide_empty' => true,
+				)
+			);
+			if ( ! empty( $filters ) ) :
+				?>
+				<h4>Filter by Area of Expertise:</h4>
+				<div class="flex flex-col md:flex-row justify-start">	
+					<?php foreach ( $filters as $filter ) : ?>
+						<a class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary p-2" href="javascript:void(0)" data-filter=".<?php echo esc_html( $filter->slug ); ?>" class="selected"><?php echo esc_html( $filter->name ); ?></a>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
 			<h4>
 				<label class="heading" for="id_search">Search by name, title, or research interests:</label>
 			</h4>
