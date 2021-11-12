@@ -14,11 +14,11 @@ get_header();
 // Set Research Projects Query Parameters.
 $ksas_testimonial_query = new WP_Query(
 	array(
-		'post_type'       => 'testimonial',
-		'meta_key'        => 'ecpt_testimonial_alpha',
-		'orderby'         => 'meta_value',
-		'order'           => 'ASC',
-		'posts_per_page'  => 100,
+		'post_type'      => 'testimonial',
+		'meta_key'       => 'ecpt_testimonial_alpha',
+		'orderby'        => 'meta_value',
+		'order'          => 'ASC',
+		'posts_per_page' => 100,
 	)
 );
 ?>

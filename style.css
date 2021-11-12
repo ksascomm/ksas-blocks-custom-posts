@@ -292,6 +292,7 @@ input[type="url"] {
 
 .graduate-field-card dd {
   line-height: 1.5;
+  margin-inline-start: 0px;
 }
 
 /* Testimonials/Profiles

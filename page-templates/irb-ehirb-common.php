@@ -13,7 +13,7 @@ get_header();
 <?php
 $application_ehirb_query = new WP_Query(
 	array(
-		'posts_per_page' => 250,
+		'posts_per_page' => 100,
 		'orderby'        => 'title',
 		'order'          => 'asc',
 		'post_type'      => 'documents',
@@ -28,7 +28,7 @@ $application_ehirb_query = new WP_Query(
 );
 $fsa_ehirb_query         = new WP_Query(
 	array(
-		'posts_per_page' => 250,
+		'posts_per_page' => 100,
 		'orderby'        => 'title',
 		'order'          => 'asc',
 		'post_type'      => 'documents',
@@ -43,7 +43,7 @@ $fsa_ehirb_query         = new WP_Query(
 );
 $consent_ehirb_query     = new WP_Query(
 	array(
-		'posts_per_page' => 250,
+		'posts_per_page' => 100,
 		'orderby'        => 'title',
 		'order'          => 'asc',
 		'post_type'      => 'documents',
@@ -58,7 +58,7 @@ $consent_ehirb_query     = new WP_Query(
 );
 $related_ehirb_query     = new WP_Query(
 	array(
-		'posts_per_page' => 250,
+		'posts_per_page' => 100,
 		'orderby'        => 'title',
 		'order'          => 'asc',
 		'post_type'      => 'documents',
@@ -73,7 +73,7 @@ $related_ehirb_query     = new WP_Query(
 );
 $general_ehirb_query     = new WP_Query(
 	array(
-		'posts_per_page' => 250,
+		'posts_per_page' => 100,
 		'orderby'        => 'title',
 		'order'          => 'asc',
 		'post_type'      => 'documents',

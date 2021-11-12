@@ -18,24 +18,24 @@
 			<div class="flex items-center flex-wrap ">
 				<ul>
 					<?php if ( get_post_meta( $post->ID, 'ecpt_degreesoffered', true ) ) : ?>
-						<li><span class="fas fa-graduation-cap"></span> Degrees Offered: <?php echo get_post_meta( $post->ID, 'ecpt_degreesoffered', true ); ?></li>
+						<li><span class="fas fa-graduation-cap"></span> Degrees Offered: <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_degreesoffered', true ) ); ?></li>
 					<?php endif; ?>
-					<li><span class="fas fa-link"></span> <a href="<?php echo get_post_meta( $post->ID, 'ecpt_website', true ); ?>" aria-label="<?php the_title(); ?> Program Website">Program Website</a></li>
+					<li><span class="fas fa-link"></span> <a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_website', true ) ); ?>" aria-label="<?php the_title(); ?> Program Website">Program Website</a></li>
 					<li><span class="far fa-id-card"></span>
-						<a href="mailto:<?php echo get_post_meta( $post->ID, 'ecpt_emailaddress', true ); ?>"><?php echo get_post_meta( $post->ID, 'ecpt_contactname', true ); ?></a></li>
-					<li><strong>Deadline: </strong><?php echo get_post_meta( $post->ID, 'ecpt_deadline', true ); ?>
+						<a href="mailto:<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_emailaddress', true ) ); ?>"><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_contactname', true ) ); ?></a></li>
+					<li><strong>Deadline: </strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_deadline', true ) ); ?>
 						<?php
 						if ( get_post_meta( $post->ID, 'ecpt_adddeadline', true ) ) :
 							?>
-							; <?php echo get_post_meta( $post->ID, 'ecpt_adddeadline', true ); ?>
-							<?php endif; ?>
+							; <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_adddeadline', true ) ); ?>
+						<?php endif; ?>
 					</li>
 				</ul>
 
 				<?php if ( get_post_meta( $post->ID, 'ecpt_supplementalmaterials', true ) ) : ?>
 					<dl class="mt-2">
 						<dt class="font-heavy font-bold">Supplemental Materials</dt>
-						<dd><?php echo get_post_meta( $post->ID, 'ecpt_supplementalmaterials', true ); ?></dd>
+						<dd><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_supplementalmaterials', true ) ); ?></dd>
 					</dl>
 				<?php endif; ?>
 			</div>

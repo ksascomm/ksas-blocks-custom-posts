@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( '' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
@@ -19,7 +19,7 @@
 		</h3>
 	<?php endif; ?>
 	<?php
-	$field  = get_field_object( 'affiliated_section' );
+	$field        = get_field_object( 'affiliated_section' );
 	$affiliations = get_field( 'affiliated_section' );
 	if ( get_field( 'affiliated_section' ) ) :
 		?>
@@ -27,10 +27,10 @@
 			<?php foreach ( $affiliations as $affiliation ) : ?>
 				<span class="capitalize">
 					<?php
-					$no_commas = $field['choices'][ $affiliation ] ;
-					$comma = ',';
+					$no_commas   = $field['choices'][ $affiliation ];
+					$comma       = ',';
 					$pretty_text = $no_commas . $comma;
-					echo $pretty_text;
+					echo esc_html( $pretty_text );
 					?>
 				</span>
 			<?php endforeach; ?>
