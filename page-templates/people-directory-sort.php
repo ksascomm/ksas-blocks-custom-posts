@@ -31,8 +31,8 @@ get_header();
 			<div class="flex flex-col md:flex-row justify-start">
 				<?php
 				$positions = get_terms(
-					'role',
 					array(
+						'taxonomy'   => 'role',
 						'orderby'    => 'slug',
 						'order'      => 'ASC',
 						'hide_empty' => true,
@@ -45,14 +45,14 @@ get_header();
 			</div>
 			<?php
 			$filters = get_terms(
-				'filter',
 				array(
+					'taxonomy'   => 'filter',
 					'orderby'    => 'slug',
 					'order'      => 'ASC',
 					'hide_empty' => true,
 				)
 			);
-			if ( ! empty( $filters ) ) :
+			if ( ! empty( $filters ) && ! is_wp_error( $filters ) ) :
 				?>
 				<h4>Filter by Area of Expertise:</h4>
 				<div class="flex flex-col md:flex-row justify-start">	

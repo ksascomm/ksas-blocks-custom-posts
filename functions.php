@@ -63,15 +63,12 @@ function get_the_roles( $post ) {
  */
 function get_the_filters( $post ) {
 	$directory_filters = get_the_terms( $post->ID, 'filter' );
-	if ( ! empty( $directory_filters ) ) {
-		if ( $directory_filters && ! is_wp_error( $directory_filters ) ) :
-			$directory_filter_names = array();
-			foreach ( $directory_filters as $directory_filter ) {
-				$directory_filter_names[] = $directory_filter->slug;
-			}
-			$directory_filter_name = join( ' ', $directory_filter_names );
-
-		endif;
+	if ( ! empty( $directory_filters ) && ! is_wp_error( $directory_filters ) ) {
+		$directory_filter_names = array();
+		foreach ( $directory_filters as $directory_filter ) {
+			$directory_filter_names[] = $directory_filter->slug;
+		}
+		$directory_filter_name = join( ' ', $directory_filter_names );
 		return $directory_filter_name;
 	}
 }
