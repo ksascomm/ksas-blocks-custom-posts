@@ -16,10 +16,20 @@
 		<h3>
 			<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
 		</h3>
-		<h4><?php the_field( 'fields_of_study' ); ?></h4>
+		<?php if ( get_field( 'fields_of_study' ) ) : ?>
+			<h4><?php the_field( 'fields_of_study' ); ?></h4>
+		<?php endif; ?>
+		<?php if ( get_post_meta( $post->ID, 'ecpt_job', true ) ) : ?>
+			<h4><?php echo get_post_meta( $post->ID, 'ecpt_job', true ); ?></h4>
+		<?php endif; ?>
+		<?php if ( get_post_meta( $post->ID, 'ecpt_class', true ) ) : ?>
+			<h4>Class of: <?php echo get_post_meta( $post->ID, 'ecpt_class', true ); ?></h4>
+		<?php endif; ?>
 		<div class="flex items-center flex-wrap">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_pull_quote', true ) ) : ?>
 				<?php echo get_post_meta( $post->ID, 'ecpt_pull_quote', true ); ?>
+			<?php elseif ( get_post_meta( $post->ID, 'ecpt_quote', true ) ) : ?>
+				<?php echo get_post_meta( $post->ID, 'ecpt_quote', true ); ?>
 			<?php else : ?>
 				<?php the_excerpt(); ?>
 			<?php endif; ?>
