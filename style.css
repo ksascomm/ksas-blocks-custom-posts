@@ -302,3 +302,12 @@ input[type="url"] {
   margin-right: 1.5rem;
   margin-bottom: 1.5rem;
 }
+
+@media (min-width: 768px) {
+  .single-profile .entry-content::after,
+  .single-testimonial .entry-content::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
