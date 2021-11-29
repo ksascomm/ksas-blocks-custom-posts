@@ -28,6 +28,13 @@
 				)
 			);
 			?>
+		<?php if ( get_post_meta( $post->ID, 'ecpt_job', true ) ) : ?>
+			<h4><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_job', true ) ); ?></h4>
+		<?php endif; ?>
+		<?php if ( get_post_meta( $post->ID, 'ecpt_class', true ) ) : ?>
+			<h4>Class of: <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_class', true ) ); ?></h4>
+		<?php endif; ?>
+
 		<?php
 		the_content();
 
