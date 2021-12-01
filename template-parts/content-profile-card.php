@@ -27,9 +27,9 @@
 		<?php endif; ?>
 		<div class="flex items-center flex-wrap">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_pull_quote', true ) ) : ?>
-				<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pull_quote', true ) ); ?>
+				<?php echo get_post_meta( $post->ID, 'ecpt_pull_quote', true ); ?>
 			<?php elseif ( get_post_meta( $post->ID, 'ecpt_quote', true ) ) : ?>
-				<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_quote', true ) ); ?>
+				<?php echo get_post_meta( $post->ID, 'ecpt_quote', true ); ?>
 			<?php else : ?>
 				<?php the_excerpt(); ?>
 			<?php endif; ?>
