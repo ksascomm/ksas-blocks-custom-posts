@@ -66,7 +66,9 @@
 
 					<?php echo email_munge( $email ); ?> </a><br>
 			<?php endif; ?>
-
+			<?php if ( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ) : ?>
+			<span class="fa fa-globe"></span> <a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ); ?>" onclick="ga('send', 'event', 'People Directory', 'Group/Lab Website', '<?php the_title(); ?> | <?php echo get_post_meta( $post->ID, 'ecpt_lab_website', true ); ?>')" target="_blank" aria-label="<?php the_title(); ?>'s Group/Lab Website">Group/Lab Website</a>
+			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_expertise', true ) ) : ?>
 				<p class="pr-2"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
 			<?php endif; ?>	
