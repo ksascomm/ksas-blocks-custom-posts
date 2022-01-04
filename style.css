@@ -5,7 +5,7 @@
  Author:       KSAS Communications
  Author URI:   https://github.com/ksascomm
  Template:     ksas-blocks
- Version:      1.1.0
+ Version:      1.2.0
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  ksas-blocks-custom-posts
@@ -334,4 +334,68 @@ input[type="url"] {
   .category-books .entry-content ul.book-meta li {
     padding-left: 0;
   }
+}
+
+/* Blog Meta
+--------------------------------------------- */
+.blog-excerpt a,
+.blog-excerpt a:hover {
+  border: none;
+}
+
+.post-taxonomies {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 1rem 0;
+  padding: .5em .75em;
+  border: 1px solid transparent;
+  border-radius: 0;
+  transition: background-color .25s ease-out,color .25s ease-out;
+  font-family: inherit;
+  -webkit-appearance: none;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #002d72;
+}
+
+.post-taxonomies > span {
+  text-transform: uppercase;
+  margin-bottom: .25rem;
+}
+
+.post-taxonomies a {
+  font-family: gentona-semibold,"Helvetica Neue",Roboto,sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.blog-excerpt .entry-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.125rem;
+  font-family: gentona-semibold,"Helvetica Neue",Roboto,sans-serif;
+  font-weight: 600;
+  max-width: 70ch;
+}
+
+.blog-excerpt .entry-meta .posted-by,
+.blog-full .entry-meta .posted-by {
+  text-transform: initial;
+}
+
+.blog-full .entry-meta {
+  display: flex;
+  justify-content: space-between;
+	margin: 1rem 0;
+	padding: .75rem 1rem;
+	background-color: #f4f4f4;
+	max-width: 100ch;
+  font-family: gentona-semibold,"Helvetica Neue",Roboto,sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.blog-full .entry-content p {
+  font-size: 1.25rem;
 }
