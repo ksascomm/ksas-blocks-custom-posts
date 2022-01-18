@@ -84,6 +84,16 @@ input[type="url"] {
   height: 20rem;
 }
 
+.flex-none {
+  flex: none;
+}
+
+@media (min-width: 62rem) { 
+  .lg\:flex-nowrap {
+    flex-wrap: nowrap;
+  }
+}
+
 /* Accordion Tabs
 --------------------------------------------- */
 
