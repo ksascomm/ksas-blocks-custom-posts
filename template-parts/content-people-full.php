@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying People CPT with ecpt_bio in
+ * Template part for displaying People CPT with 'ecpt_bio' in
  * people-direcory.php and single-people.php
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
@@ -35,16 +35,16 @@
 			<?php else : ?>
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>'s webpage">
 					<?php the_title(); ?>
-				</a>	
+				</a>
 			<?php endif; ?>
 			</h2>
 
 			<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
-				<h3><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></h3>
+				<h3><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></h3>
 			<?php endif; ?>
 
 			<?php if ( get_post_meta( $post->ID, 'ecpt_degrees', true ) ) : ?>
-				<h4><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_degrees', true ) ); ?></h4>
+				<h4><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_degrees', true ) ); ?></h4>
 			<?php endif; ?>
 
 			<?php if ( get_post_meta( $post->ID, 'ecpt_office', true ) ) : ?>
@@ -55,9 +55,6 @@
 				<span class="fas fa-phone-square-alt" aria-hidden="true"></span> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_phone', true ) ); ?><br>
 			<?php endif; ?>
 
-			<?php if ( get_post_meta( $post->ID, 'ecpt_fax', true ) ) : ?>
-				<span class="fas fa-fax" aria-hidden="true"></span>  <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_fax', true ) ); ?><br>
-			<?php endif; ?>
 			<?php
 			if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
 				$email = get_post_meta( $post->ID, 'ecpt_email', true );
@@ -87,7 +84,7 @@
 			<input class="absolute opacity-0" id="bioTab" type="radio" name="tabs2" checked>
 			<label class="block p-5 leading-normal cursor-pointer font-semi font-semibold" for="bioTab">Biography</label>
 			<div class="tab-content overflow-hidden bg-gray-100 leading-normal">
-			<?php echo get_post_meta( $post->ID, 'ecpt_bio', true ); ?>
+			<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_bio', true ) ); ?>
 			</div>
 			</div>
 		<?php endif; ?>
@@ -96,7 +93,7 @@
 			<input class="absolute opacity-0" id="researchTab" type="radio" name="tabs2">
 			<label class="block p-5 leading-normal cursor-pointer font-semi font-semibold" for="researchTab">Research</label>
 			<div class="tab-content overflow-hidden bg-gray-100 leading-normal">
-			<?php echo get_post_meta( $post->ID, 'ecpt_research', true ); ?>
+			<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_research', true ) ); ?>
 			</div>
 			</div>
 		<?php endif; ?>
@@ -105,7 +102,7 @@
 			<input class="absolute opacity-0" id="teachingTab" type="radio" name="tabs2">
 			<label class="block p-5 leading-normal cursor-pointer font-semi font-semibold" for="teachingTab">Teaching</label>
 			<div class="tab-content overflow-hidden bg-gray-100 leading-normal">
-			<?php echo get_post_meta( $post->ID, 'ecpt_teaching', true ); ?>
+			<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_teaching', true ) ); ?>
 			</div>
 			</div>
 		<?php endif; ?>
@@ -114,25 +111,25 @@
 			<input class="absolute opacity-0" id="publicationsTab" type="radio" name="tabs2">
 			<label class="block p-5 leading-normal cursor-pointer font-semi font-semibold" for="publicationsTab">Publications</label>
 			<div class="tab-content overflow-hidden bg-gray-100 leading-normal">
-			<?php echo get_post_meta( $post->ID, 'ecpt_publications', true ); ?>
+			<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_publications', true ) ); ?>
 			</div>
 			</div>
 		<?php endif; ?>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ) : ?>
 			<div class="tab w-full overflow-hidden">
 			<input class="absolute opacity-0" id="extraTab" type="radio" name="tabs2">
-			<label class="block p-5 leading-normal cursor-pointer font-semi font-semibold" for="extraTab"><?php echo get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ); ?></label>
+			<label class="block p-5 leading-normal cursor-pointer font-semi font-semibold" for="extraTab"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ); ?></label>
 			<div class="tab-content overflow-hidden bg-gray-100 leading-normal">
-			<?php echo get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ); ?>
+			<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab', true ) ) ); ?>
 			</div>
 			</div>
 		<?php endif; ?>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ) : ?>
 			<div class="tab w-full overflow-hidden">
 			<input class="absolute opacity-0" id="extra2Tab" type="radio" name="tabs2">
-			<label class="block p-5 leading-normal cursor-pointer font-semi font-semibold" for="extra2Tab"><?php echo get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ); ?></label>
+			<label class="block p-5 leading-normal cursor-pointer font-semi font-semibold" for="extra2Tab"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ); ?></label>
 			<div class="tab-content overflow-hidden bg-gray-100 leading-normal">
-			<?php echo get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ); ?>
+			<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab2', true ) ) ); ?>
 			</div>
 			</div>
 		<?php endif; ?>

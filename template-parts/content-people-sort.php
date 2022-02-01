@@ -31,8 +31,12 @@
 	<?php endif; ?>
 	<div class="flex-grow">
 		<h2 class="font-heavy my-0">
-		<?php if ( get_post_meta( $post->ID, 'ecpt_website', true ) ) : ?>
-			<a href="<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_website', true ) ); ?>" title="<?php the_title(); ?>'s webpage" target="_blank">
+		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>'s webpage">
+				<?php the_title(); ?>
+			</a>
+		<?php elseif ( get_post_meta( $post->ID, 'ecpt_website', true ) ) : ?>
+			<a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_website', true ) ); ?>" title="<?php the_title(); ?>'s webpage" target="_blank">
 				<?php the_title(); ?>
 			</a>
 		<?php else : ?>
@@ -41,7 +45,11 @@
 		</h2>
 
 		<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
-			<h3><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></h3>
+			<h3><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></h3>
+		<?php endif; ?>
+
+		<?php if ( get_post_meta( $post->ID, 'ecpt_degrees', true ) ) : ?>
+			<h4><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_degrees', true ) ); ?></h4>
 		<?php endif; ?>
 
 		<?php if ( get_post_meta( $post->ID, 'ecpt_office', true ) ) : ?>
@@ -52,9 +60,6 @@
 			<span class="fas fa-phone-square-alt" aria-hidden="true"></span> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_phone', true ) ); ?><br>
 		<?php endif; ?>
 
-		<?php if ( get_post_meta( $post->ID, 'ecpt_fax', true ) ) : ?>
-			<span class="fas fa-fax" aria-hidden="true"></span>  <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_fax', true ) ); ?><br>
-		<?php endif; ?>
 		<?php
 		if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
 			$email = get_post_meta( $post->ID, 'ecpt_email', true );
