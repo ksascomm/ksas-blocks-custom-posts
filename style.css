@@ -94,6 +94,15 @@ input[type="url"] {
   }
 }
 
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 /* Accordion Tabs
 --------------------------------------------- */
 
@@ -168,184 +177,6 @@ input[type="url"] {
   padding-right: 1.25rem; /*.p-5*/
 }
 
-/* Documents
---------------------------------------------- */
-.documents {
-  margin-bottom: -3rem !important;
-  padding-bottom: 3rem;
-}
-
-.documents > h3 {
-  max-width: 75ch;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.documents .tab {
-  background-color: #fefefe;
-  max-width: 100ch;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Isotope
---------------------------------------------- */
-.isotope-to-sort a.button {
-  margin: 0 0.25rem;
-  text-align: center;
-  font-family: Gentona-SemiBold, system-ui, BlinkMacSystemFont, -apple-system,
-    Segoe UI, sans-serif;
-  vertical-align: text-bottom;
-  line-height: 1.2;
-}
-
-.site-main .isotope-to-sort a {
-  color: inherit;
-}
-
-.isotope-to-sort a.all.button {
-  --tw-text-opacity: 1;
-  color: rgba(254, 254, 254, var(--tw-text-opacity));
-}
-
-.isotope-to-sort a.all.button:hover {
-  --tw-text-opacity: 1;
-  color: rgba(49, 38, 29, var(--tw-text-opacity));
-}
-
-.isotope-to-sort a.button {
-  color: #fefefe;
-  border-bottom: 0;
-  text-transform: capitalize;
-}
-
-.isotope-to-sort a.button.is-checked {
-  background-color: #68ace5;
-  color: #31261d;
-}
-
-/* Research Projects
---------------------------------------------- */
-.research-project-card-outline {
-  border-width: 2px;
-  --tw-border-opacity: 1;
-  border-color: rgba(237, 242, 247, var(--tw-border-opacity));
-  /* hex: #edf2f7*/
-  --tw-shadow: 0 0 #0000;
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.research-project-card ul {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  padding-inline-start: 0px;
-}
-
-.research-project-card ul > li {
-  padding-left: 0;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
-}
-
-.research-project-card ul > li::before {
-  content: none;
-}
-
-.research-project-card p {
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-}
-
-.research-project-card h3 {
-  font-size: 1.25rem;
-}
-
-/* Graduate Field of Study
---------------------------------------------- */
-.graduate-field-card-outline {
-  border-width: 2px;
-  --tw-border-opacity: 1;
-  border-color: rgba(237, 242, 247, var(--tw-border-opacity));
-  /* hex: #edf2f7*/
-  --tw-shadow: 0 0 #0000;
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.graduate-field-card ul {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  padding-inline-start: 0px;
-}
-
-.graduate-field-card ul > li {
-  padding-left: 0;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
-}
-
-.graduate-field-card ul > li::before {
-  content: none;
-}
-
-.graduate-field-card p {
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-}
-
-.graduate-field-card h3 {
-  font-size: 1.5rem;
-}
-
-.graduate-field-card dd {
-  line-height: 1.5;
-  margin-inline-start: 0px;
-}
-
-/* Testimonials/Profiles
---------------------------------------------- */
-.single-profile .profile img.wp-post-image,
-.single-testimonial .testimonial img.wp-post-image {
-  margin-right: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .single-profile .entry-content::after,
-  .single-testimonial .entry-content::after,
-  .category-books .entry-content::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-}
-
-/* Faculty Books
---------------------------------------------- */
-.category-books img.wp-post-image {
-  width: 15rem;
- }
-
-.category-books .entry-content ul.book-meta li {
- margin: .5rem 0;
-}
-
-.category-books .entry-content ul.book-meta li::before {
-  display: none;
-}
-
-@media (max-width: 787px) { 
-  .category-books .entry-content ul.book-meta {
-    padding-inline-start: 0;
-  }
-  .category-books .entry-content ul.book-meta li {
-    padding-left: 0;
-  }
-}
-
 /* Blog Meta
 --------------------------------------------- */
 .blog-excerpt a,
@@ -408,4 +239,189 @@ input[type="url"] {
 
 .blog-full .entry-content p {
   font-size: 1.25rem;
+}
+
+/* Documents
+--------------------------------------------- */
+.documents {
+  margin-bottom: -3rem !important;
+  padding-bottom: 3rem;
+}
+
+.documents > h3 {
+  max-width: 75ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.documents .tab {
+  background-color: #fefefe;
+  max-width: 100ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Faculty Books
+--------------------------------------------- */
+.category-books img.wp-post-image {
+  width: 15rem;
+ }
+
+.category-books .entry-content ul.book-meta li {
+ margin: .5rem 0;
+}
+
+.category-books .entry-content ul.book-meta li::before {
+  display: none;
+}
+
+@media (max-width: 787px) { 
+  .category-books .entry-content ul.book-meta {
+    padding-inline-start: 0;
+  }
+  .category-books .entry-content ul.book-meta li {
+    padding-left: 0;
+  }
+}
+
+/* Graduate Field of Study
+--------------------------------------------- */
+.graduate-field-card-outline {
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgba(237, 242, 247, var(--tw-border-opacity));
+  /* hex: #edf2f7*/
+  --tw-shadow: 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.graduate-field-card ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-inline-start: 0px;
+}
+
+.graduate-field-card ul > li {
+  padding-left: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.graduate-field-card ul > li::before {
+  content: none;
+}
+
+.graduate-field-card p {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.graduate-field-card h3 {
+  font-size: 1.5rem;
+}
+
+.graduate-field-card dd {
+  line-height: 1.5;
+  margin-inline-start: 0px;
+}
+
+/* Isotope
+--------------------------------------------- */
+.isotope-to-sort a.button {
+  margin: 0 0.25rem;
+  text-align: center;
+  font-family: Gentona-SemiBold, system-ui, BlinkMacSystemFont, -apple-system,
+    Segoe UI, sans-serif;
+  vertical-align: text-bottom;
+  line-height: 1.2;
+}
+
+.site-main .isotope-to-sort a {
+  color: inherit;
+}
+
+.isotope-to-sort a.all.button {
+  --tw-text-opacity: 1;
+  color: rgba(254, 254, 254, var(--tw-text-opacity));
+}
+
+.isotope-to-sort a.all.button:hover {
+  --tw-text-opacity: 1;
+  color: rgba(49, 38, 29, var(--tw-text-opacity));
+}
+
+.isotope-to-sort a.button {
+  color: #fefefe;
+  border-bottom: 0;
+  text-transform: capitalize;
+}
+
+.isotope-to-sort a.button.is-checked {
+  background-color: #68ace5;
+  color: #31261d;
+}
+
+/* People Directory
+--------------------------------------------- */
+.people p.interests {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+/* Research Projects
+--------------------------------------------- */
+.research-project-card-outline {
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgba(237, 242, 247, var(--tw-border-opacity));
+  /* hex: #edf2f7*/
+  --tw-shadow: 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.research-project-card ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-inline-start: 0px;
+}
+
+.research-project-card ul > li {
+  padding-left: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.research-project-card ul > li::before {
+  content: none;
+}
+
+.research-project-card p {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.research-project-card h3 {
+  font-size: 1.25rem;
+}
+
+/* Testimonials/Profiles
+--------------------------------------------- */
+.single-profile .profile img.wp-post-image,
+.single-testimonial .testimonial img.wp-post-image {
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .single-profile .entry-content::after,
+  .single-testimonial .entry-content::after,
+  .category-books .entry-content::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
 }

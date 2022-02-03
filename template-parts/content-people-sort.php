@@ -69,7 +69,7 @@
 		<?php endif; ?>
 
 		<?php if ( get_post_meta( $post->ID, 'ecpt_expertise', true ) ) : ?>
-			<p class="pr-2"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
+			<p class="pr-2 interests"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
 		<?php endif; ?>	
 	</div>
 </div>
