@@ -33,7 +33,8 @@ get_header();
 				</header>
 				<?php
 			endif;
-			if ( get_field( 'blog_theme', 'option' ) ) : ?>
+			if ( get_field( 'blog_theme', 'option' ) ) :
+				?>
 
 				<div class="grid grid-cols-1 lg:grid-cols-3 gap-4 p-4 mx-auto">
 					<?php
@@ -53,9 +54,9 @@ get_header();
 				endwhile;
 			endif;
 
-			if ( function_exists( 'ksas_blocks_pagination' ) ) :
+				if ( function_exists( 'ksas_blocks_pagination' ) ) :
 
-				ksas_blocks_pagination();
+					ksas_blocks_pagination();
 
 			else :
 

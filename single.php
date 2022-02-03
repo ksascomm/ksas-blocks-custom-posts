@@ -19,7 +19,8 @@ get_header();
 		?>
 		</div>
 		<?php
-		if ( get_field( 'blog_theme', 'option' ) ) : ?>
+		if ( get_field( 'blog_theme', 'option' ) ) :
+			?>
 
 				<?php
 				/* Start the Loop */
@@ -36,7 +37,7 @@ get_header();
 					get_template_part( 'template-parts/content', get_post_type() );
 			endwhile;
 		endif;
-		?>
+			?>
 
 	</main><!-- #main -->
 
