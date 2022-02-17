@@ -4,11 +4,7 @@ Description: Used to style the content editor in posts and pages
 
 @font-face {
   font-family: "quadon-medium";
-  src: url("../../ksas-blocks/dist/fonts/quadon/Quadon-Medium.eot");
-  src: url("../ksas-blocks/dist/fonts/quadon/Quadon-Medium.eot?#iefix")
-      format("embedded-opentype"),
-    url("../../ksas-blocks/dist/fonts/quadon/Quadon-Medium.woff") format("woff"),
-    url("../../ksas-blocks/dist/fonts/quadon/Quadon-Medium.ttf") format("truetype");
+  src: url("../../ksas-blocks/dist/fonts/quadon/Quadon-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -16,11 +12,7 @@ Description: Used to style the content editor in posts and pages
 
 @font-face {
   font-family: "gentona-light";
-  src: url("../../ksas-blocks/dist/fonts/gentona/Gentona-Light.eot");
-  src: url("../../ksas-blocks/dist/fonts/gentona/Gentona-Light.eot?#iefix")
-      format("embedded-opentype"),
-    url("../../ksas-blocks/dist/fonts/gentona/Gentona-Light.woff") format("woff"),
-    url("../../ksas-blocks/dist/fonts/gentona/Gentona-Light.ttf") format("truetype");
+  src: url("../../ksas-blocks/dist/fonts/gentona/Gentona-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -28,11 +20,7 @@ Description: Used to style the content editor in posts and pages
 
 @font-face {
   font-family: "gentona-semibold";
-  src: url("../../ksas-blocks/dist/fonts/gentona/Gentona-SemiBold.eot");
-  src: url("../../ksas-blocks/dist/fonts/gentona/Gentona-SemiBold.eot?#iefix")
-      format("embedded-opentype"),
-    url("../../ksas-blocks/dist/fonts/gentona/Gentona-SemiBold.woff") format("woff"),
-    url("../../ksas-blocks/dist/fonts/gentona/Gentona-SemiBold.ttf") format("truetype");
+  src: url("../../ksas-blocks/dist/fonts/gentona/Gentona-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
