@@ -21,7 +21,13 @@ if ( ! empty( $program_types ) ) {
 	endif;
 }
 ?>
-<div class="research-project-card p-2 w-full md:w-1/3 item <?php echo esc_html( $program_type_name ); ?>">
+<div class="research-project-card p-2 w-full md:w-1/3 item
+<?php
+if ( ! empty( $program_types ) ) {
+	echo esc_html( $program_type_name );
+}
+?>
+">
 	<div class="h-full rounded-lg overflow-hidden field  mb-4 px-6 py-4 overflow-hidden bg-white research-project-card-outline">
 		<div class="p-8">
 			<?php if ( has_post_thumbnail() ) { ?>

@@ -22,7 +22,7 @@ $flagship_researchprojects_query = new WP_Query(
 );
 ?>
 
-<main id="site-content" class="site-main prose sm:prose lg:prose-lg mx-auto pb-2">
+<main id="site-content" class="site-main prose mx-auto pb-2">
 	<?php
 	if ( function_exists( 'bcn_display' ) ) :?>
 	<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
@@ -38,9 +38,7 @@ $flagship_researchprojects_query = new WP_Query(
 	endwhile; // End of the loop.
 	?>
 	<div class="isotope-to-sort bg-grey-lightest border-solid border-grey border-2 p-4 mb-4" role="region" aria-label="Filters">
-		<h3 class="text-2xl -mt-2">Filter by Project Type or Research Area:</h3>
-		<div class="flex flex-col md:flex-row justify-around" id="filters">
-			<?php
+		<?php
 			$projects = get_terms(
 				'project_type',
 				array(
@@ -50,10 +48,14 @@ $flagship_researchprojects_query = new WP_Query(
 				)
 			);
 			?>
+	<?php if ( ! empty( $projects ) ) : ?>
+		<h3 class="text-2xl -mt-2">Filter by type or area:</h3>
+		<div class="flex flex-col md:flex-row justify-around" id="filters">
 			<?php foreach ( $projects as $project ) : ?>
 				<a class="all button bg-blue text-white hover:bg-blue-light hover:text-primary text-base p-1" href="javascript:void(0)" data-filter=".<?php echo esc_html( $project->slug ); ?>" class="selected"><?php echo esc_html( $project->name ); ?></a>
 			<?php endforeach; ?>
 		</div>
+	<?php endif; ?>
 		<h4>
 			<label class="heading" for="id_search">Search by keyword:</label>
 		</h4>
