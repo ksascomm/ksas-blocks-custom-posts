@@ -125,7 +125,7 @@ if ( ! function_exists( 'ksas_blocks_blog_entry_meta' ) ) :
 			if ( is_single() ) :
 				// Show email address on single post.
 				?>
-				<span class="contact"><br><i class="fas fa-envelope"></i> <a href="mailto:<?php echo esc_html( get_the_author_meta( 'user_email' ) ); ?>?subject=Response to: <?php the_title(); ?>">Contact the author</a></span>
+				<span class="contact"><br><i class="fa-solid fa-at"></i> <a href="mailto:<?php echo esc_html( get_the_author_meta( 'user_email' ) ); ?>?subject=Response to: <?php the_title(); ?>">Contact the author</a></span>
 			<?php endif; ?>
 			<?php
 			echo '</div>';

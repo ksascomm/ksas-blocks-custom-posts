@@ -53,19 +53,25 @@
 		<?php endif; ?>
 
 		<?php if ( get_post_meta( $post->ID, 'ecpt_office', true ) ) : ?>
-			<span class="fas fa-map-marker-alt" aria-hidden="true"></span> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_office', true ) ); ?><br>
+			<span class="fa-solid fa-location-dot" aria-hidden="true"></span> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_office', true ) ); ?><br>
 		<?php endif; ?>
 
 		<?php if ( get_post_meta( $post->ID, 'ecpt_phone', true ) ) : ?>
-			<span class="fas fa-phone-square-alt" aria-hidden="true"></span> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_phone', true ) ); ?><br>
+			<span class="fa-solid fa-phone-office" aria-hidden="true"></span> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_phone', true ) ); ?><br>
 		<?php endif; ?>
 
 		<?php
 		if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
 			$email = get_post_meta( $post->ID, 'ecpt_email', true );
 			?>
-			<span class="fas fa-envelope" aria-hidden="true"></span> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;<?php echo email_munge( $email ); ?>">
-				<?php echo email_munge( $email ); ?> </a><br>
+			<span class="fa-solid fa-at" aria-hidden="true"></span>
+			<?php if ( function_exists( 'email_munge' ) ) : ?>
+			<a class="munge" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;<?php echo email_munge( $email ); ?>">
+				<?php echo email_munge( $email ); ?>
+			</a>
+			<?php else : ?>
+			<a href="<?php echo esc_url( 'mailto:' . $email ); ?>"><?php echo esc_html( $email ); ?></a>
+			<?php endif; ?>
 		<?php endif; ?>
 
 		<?php if ( get_post_meta( $post->ID, 'ecpt_expertise', true ) ) : ?>

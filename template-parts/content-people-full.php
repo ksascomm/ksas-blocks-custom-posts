@@ -48,18 +48,18 @@
 			<?php endif; ?>
 
 			<?php if ( get_post_meta( $post->ID, 'ecpt_office', true ) ) : ?>
-				<span class="fas fa-map-marker-alt" aria-hidden="true"></span> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_office', true ) ); ?><br>
+				<span class="fa-solid fa-location-dot" aria-hidden="true"></span> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_office', true ) ); ?><br>
 			<?php endif; ?>
 
 			<?php if ( get_post_meta( $post->ID, 'ecpt_phone', true ) ) : ?>
-				<span class="fas fa-phone-square-alt" aria-hidden="true"></span> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_phone', true ) ); ?><br>
+				<span class="fa-solid fa-phone-office" aria-hidden="true"></span> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_phone', true ) ); ?><br>
 			<?php endif; ?>
 
 			<?php
 			if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
 				$email = get_post_meta( $post->ID, 'ecpt_email', true );
 				?>
-			<span class="fa fa-envelope" aria-hidden="true"></span>
+			<span class="fa-solid fa-at" aria-hidden="true"></span>
 				<?php if ( function_exists( 'email_munge' ) ) : ?>
 				<a class="munge" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;<?php echo email_munge( $email ); ?>">
 					<?php echo email_munge( $email ); ?>
@@ -70,7 +70,7 @@
 				<br>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ) : ?>
-			<span class="fa fa-globe"></span> <a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ); ?>" onclick="ga('send', 'event', 'People Directory', 'Group/Lab Website', '<?php the_title(); ?> | <?php echo esc_url( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ); ?>')" target="_blank" aria-label="<?php the_title(); ?>'s Group/Lab Website">Group/Lab Website</a>
+			<span class="fa-solid fa-earth-americas"></span> <a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ); ?>" onclick="ga('send', 'event', 'People Directory', 'Group/Lab Website', '<?php the_title(); ?> | <?php echo esc_url( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ); ?>')" target="_blank" aria-label="<?php the_title(); ?>'s Group/Lab Website">Group/Lab Website</a>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_expertise', true ) ) : ?>
 				<p class="pr-2"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
