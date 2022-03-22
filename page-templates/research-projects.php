@@ -50,7 +50,7 @@ $flagship_researchprojects_query = new WP_Query(
 			?>
 	<?php if ( ! empty( $projects ) ) : ?>
 		<h3 class="text-2xl -mt-2">Filter by type or area:</h3>
-		<div class="flex flex-col md:flex-row justify-around" id="filters">
+		<div class="flex flex-col md:flex-row justify-start" id="filters">
 			<?php foreach ( $projects as $project ) : ?>
 				<a class="all button bg-blue text-white hover:bg-blue-light hover:text-primary text-base p-1" href="javascript:void(0)" data-filter=".<?php echo esc_html( $project->slug ); ?>" class="selected"><?php echo esc_html( $project->name ); ?></a>
 			<?php endforeach; ?>
