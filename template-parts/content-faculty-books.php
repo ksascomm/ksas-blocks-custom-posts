@@ -12,17 +12,25 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+			the_title( '<h2 class="entry-title">', '</h2>' );
 		?>
 
 	</header><!-- .entry-header -->
+	<?php if ( has_post_thumbnail() ) : ?>
 
-	<?php ksas_blocks_post_thumbnail(); ?>
-
+		<?php
+			the_post_thumbnail(
+				'medium',
+				array(
+					'alt' => the_title_attribute(
+						array(
+							'echo' => false,
+						)
+					),
+				)
+			);
+		?>
+	<?php endif; ?>
 	<div class="entry-content">
 		<ul class="book-meta">
 			<li>
@@ -65,8 +73,8 @@
 				<?php endif; ?>
 			</li>
 		</ul>
-<?php
-if ( is_singular() ) :
+		<?php
+		if ( is_singular() ) :
 			the_content(
 				sprintf(
 					wp_kses(

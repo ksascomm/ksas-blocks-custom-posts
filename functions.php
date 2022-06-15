@@ -37,6 +37,10 @@ function ksas_blocks_custom_posts_scripts() {
 		wp_enqueue_script( 'isotope-packaged', 'https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js', array(), '3.0.6', true );
 		wp_enqueue_script( 'isotope-js', get_stylesheet_directory_uri() . '/js/isotope.js', array( 'jquery' ), '1.0.0', true );
 	endif;
+	if ( is_page_template( 'page-templates/classroom-directory.php' ) ) :
+		wp_enqueue_script( 'isotope-packaged', 'https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js', array(), '3.0.6', true );
+		wp_enqueue_script( 'isotope-classroom-js', get_stylesheet_directory_uri() . '/js/isotope-classroom.js', array( 'jquery' ), '1.0.0', true );
+	endif;
 }
 
 /**
@@ -70,6 +74,23 @@ function get_the_filters( $post ) {
 		}
 		$directory_filter_name = join( ' ', $directory_filter_names );
 		return $directory_filter_name;
+	}
+}
+
+/**
+ * Create function to print Classroom Type taxonomy on classroom-cards template part
+ *
+ * @param int/object $post ID or object of the post.
+ */
+function get_the_classroom_type( $post ) {
+	$directory_classroom_type = get_the_terms( $post->ID, 'classroom_type' );
+	if ( ! empty( $directory_classroom_type ) && ! is_wp_error( $directory_classroom_type ) ) {
+		$directory_classroom_type_names = array();
+		foreach ( $directory_classroom_type as $directory_classroom_type ) {
+			$directory_classroom_type_names[] = $directory_classroom_type->slug;
+		}
+		$directory_classroom_type_name = join( ' ', $directory_classroom_type_names );
+		return $directory_classroom_type_name;
 	}
 }
 

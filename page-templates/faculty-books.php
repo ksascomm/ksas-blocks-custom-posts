@@ -14,29 +14,40 @@ get_header();
 <?php
 	$faculty_book_query = new WP_Query(
 		array(
-			'post_type'      => 'post',
-			'category_name'  => 'books',
+			'post_type'      => 'faculty-books',
 			'posts_per_page' => 100,
+			'meta_key'       => 'ecpt_pub_date',
+			'orderby'        => 'meta_value',
+			'order'          => 'DESC',
 		)
 	);
 	?>
 	<main id="site-content" class="site-main prose sm:prose lg:prose-lg mx-auto">
 		<?php
-		if ( function_exists( 'bcn_display' ) ) :?>
+		if ( function_exists( 'bcn_display' ) ) :
+			?>
 		<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 			<?php bcn_display(); ?>
 		</div>
 		<?php endif; ?>
-			<?php
-			if ( $faculty_book_query->have_posts() ) :
-				while ( $faculty_book_query->have_posts() ) :
-					$faculty_book_query->the_post();
+		<?php
+		while ( have_posts() ) :
+			the_post();
 
-					get_template_part( 'template-parts/content', 'faculty-books' );
+			get_template_part( 'template-parts/content', 'page' );
+
+		endwhile; // End of the loop.
+		?>
+		<?php
+		if ( $faculty_book_query->have_posts() ) :
+			while ( $faculty_book_query->have_posts() ) :
+				$faculty_book_query->the_post();
+
+				get_template_part( 'template-parts/content', 'faculty-books' );
 
 			endwhile;
 			endif; // End of the loop.
-			?>
+		?>
 
 	</main><!-- #main -->
 
