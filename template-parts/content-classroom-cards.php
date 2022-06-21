@@ -103,6 +103,16 @@
 						<strong>Room Capacity:</strong>
 						<?php the_field( 'capacity' ); ?>
 					</p>
+					<p><strong>Classroom Type:</strong> 
+					<?php
+					$classroom_types = get_the_terms( $post->ID, 'classroom_type' );
+					if ( $classroom_types && ! is_wp_error( $classroom_types ) ) :
+						foreach ( $classroom_types as $classroom_type ) {
+							echo esc_html( $classroom_type->name );
+						}
+					endif;
+					?>
+					</p>
 					<span class="hidden">
 						<?php the_field( 'capacity' ); ?>
 						<?php

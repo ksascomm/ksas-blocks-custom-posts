@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'mt-8' ); ?>>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
@@ -17,11 +17,7 @@
 	<div class="entry-content">
 		<div class="grid grid-cols-2 gap-4">
 			<div>
-				<?php
-				if ( get_field( 'capacity' ) ) :
-					?>
-				<h3>Capacity: <?php the_field( 'capacity' ); ?></h3>
-				<?php endif; ?>
+				<div class="flex mt-4">
 				<?php
 				the_post_thumbnail(
 					'full',
@@ -35,15 +31,39 @@
 					)
 				);
 				?>
+				</div>
+				<div class="flex">
+				<?php
+				if ( get_field( 'capacity' ) ) :
+					?>
+					<div class="w-1/2 overflow-hidden rounded-xl bg-grey-cool bg-opacity-50 shadow-md m-4 text-center">
+						<h3 class="uppercase font-heavy">Capacity</h3> 
+						<h3 class="font-serif font-bold"><?php the_field( 'capacity' ); ?></h3>
+					</div>
+				<?php endif; ?>
+					<div class="w-1/2 overflow-hidden rounded-xl  bg-grey-cool bg-opacity-50 shadow-lg m-4 text-center">
+					<h3 class="uppercase font-heavy">Classroom Type</h3>
+						<?php
+						$classroom_types = get_the_terms( $post->ID, 'classroom_type' );
+						if ( $classroom_types && ! is_wp_error( $classroom_types ) ) :
+							foreach ( $classroom_types as $classroom_type ) :
+								?>
+								<h3 class="font-serif font-bold"><?php echo esc_html( $classroom_type->name ); ?> </h3>
+								<?php
+							endforeach;
+						endif;
+						?>
+					</h3>
+					</div>
+				</div>
 				<?php
 				if ( get_field( 'comments' ) ) :
 					?>
 				<h4>Classroom Notes</h4>
 					<?php the_field( 'comments' ); ?>
 				<?php endif; ?>
-
 			</div>
-		<div>
+			<div>
 			<h3>Supported Built-in Equipment</h3>
 			<figure class="wp-block-table classroom-table">
 				<table class="table-auto">
