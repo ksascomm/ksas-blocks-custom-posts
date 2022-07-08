@@ -257,9 +257,11 @@
 						<?php // echo 'false'; ?>
 					<?php endif; ?>
 
+					<?php if ( get_field( 'chair_type' ) ) : ?>
 					<tr>
 						<td>Chair Type: <?php the_field( 'chair_type' ); ?></td>
 					</tr>
+					<?php endif; ?>
 
 					<?php if ( get_field( 'chalkboards' ) == 1 ) : ?>
 						<tr>
@@ -277,9 +279,11 @@
 						<?php // echo 'false'; ?>
 					<?php endif; ?>
 
+					<?php if ( get_field( 'lectern_type' ) ) : ?>
 					<tr>
 						<td>Lectern Type: <?php the_field( 'lectern_type' ); ?></td>
 					</tr>
+					<?php endif; ?>
 
 					<?php if ( get_field( 'piano' ) == 1 ) : ?>
 						<tr>
@@ -289,17 +293,23 @@
 						<?php // echo 'false'; ?>
 					<?php endif; ?>
 
+					<?php if ( get_field( 'power_source' ) ) : ?>
 					<tr>
 						<td>Power Source: <?php the_field( 'power_source' ); ?></td>
 					</tr>
+					<?php endif; ?>
 
+					<?php if ( get_field( 'table_type' ) ) : ?>
 					<tr>
 						<td>Table Type: <?php the_field( 'table_type' ); ?></td>
 					</tr>
+					<?php endif; ?>
 
+					<?php if ( get_field( 'tablet_chair' ) ) : ?>
 					<tr>
 						<td>Tablet Chair: <?php the_field( 'tablet_chair' ); ?></td>
 					</tr>
+					<?php endif; ?>
 
 					<?php if ( get_field( 'tiered_seating' ) == 1 ) : ?>
 						<tr>
