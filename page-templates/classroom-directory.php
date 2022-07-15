@@ -40,7 +40,7 @@ $classrooms_query = new WP_Query(
 
 		<div class="isotope-to-sort bg-grey-lightest border-solid border-grey border-2 p-4 mb-4" role="region" aria-label="Filters" id="filters">
 			<h3>Filter by Built-in Equipment:</h3>
-			<div class="grid grid-cols-4 gap-4 button-group js-radio-button-group" id="radio-buttons">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 button-group js-radio-button-group" id="radio-buttons">
 				<label><input type="checkbox" value=".Built-In-Camera" />Built-In Camera</label>
 				<label><input type="checkbox" value=".Document-Camera" />Document Camera</label>
 				<label><input type="checkbox" value=".Epiphan-Pearl" />Epiphan Pearl</label>

@@ -9,13 +9,13 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'mt-8' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'classroom mt-8' ); ?>>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<div class="grid grid-cols-2 gap-4">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 			<div>
 				<div class="flex mt-4">
 				<?php
@@ -32,7 +32,7 @@
 				);
 				?>
 				</div>
-				<div class="flex">
+				<div class="flex classroom-callouts">
 				<?php
 				if ( get_field( 'capacity' ) ) :
 					?>

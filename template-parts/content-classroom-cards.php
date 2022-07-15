@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="classroom-field-card p-2 w-full md:w-1/3 item  <?php echo esc_html( get_the_classroom_type( $post ) ); ?>
+<div class="classroom-field-card p-2 w-full lg:w-1/4 item  <?php echo esc_html( get_the_classroom_type( $post ) ); ?>
 	<?php
 	if ( get_field( 'projector' ) == 'Yes' ) :
 		?>
@@ -80,9 +80,8 @@
 	<div class="h-full rounded-lg overflow-hidden field mb-4 overflow-hidden bg-white classroom-field-card-outline">
 		<?php
 			the_post_thumbnail(
-				'full',
+				'medium',
 				array(
-					'class' => 'w-full',
 					'alt'   => the_title_attribute(
 						array(
 							'echo' => false,
@@ -91,7 +90,7 @@
 				)
 			);
 			?>
-		<div class=" px-6 py-4 ">
+		<div class="px-6 py-4">
 			<h2 class="font-heavy font-bold">
 				<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
 			</h2>
@@ -180,6 +179,67 @@
 							?>
 						Zoom Cart
 						<?php endif; ?>
+						<?php if ( get_field( 'blackout_light_dampening_shades' ) == 1 ) : ?>
+						Blackout/Light Dampening Shades
+					<?php else : ?>
+						<?php // echo 'false'; ?>
+					<?php endif; ?>
+
+					<?php if ( get_field( 'chair_type' ) ) : ?>
+						<?php the_field( 'chair_type' ); ?>
+					<?php endif; ?>
+
+					<?php if ( get_field( 'chalkboards' ) == 1 ) : ?>
+						Chalkboard
+					<?php else : ?>
+						<?php // echo 'false'; ?>
+					<?php endif; ?>
+
+					<?php if ( get_field( 'instructor_table' ) == 1 ) : ?>
+						Instructor Table
+					<?php else : ?>
+						<?php // echo 'false'; ?>
+					<?php endif; ?>
+
+					<?php if ( get_field( 'lectern_type' ) ) : ?>
+					<?php the_field( 'lectern_type' ); ?>
+					<?php endif; ?>
+
+					<?php if ( get_field( 'piano' ) == 1 ) : ?>
+						Piano
+					<?php else : ?>
+						<?php // echo 'false'; ?>
+					<?php endif; ?>
+
+					<?php if ( get_field( 'power_source' ) ) : ?>
+						<?php the_field( 'power_source' ); ?>
+					<?php endif; ?>
+
+					<?php if ( get_field( 'table_type' ) ) : ?>
+						<?php the_field( 'table_type' ); ?>
+					<?php endif; ?>
+
+					<?php if ( get_field( 'tablet_chair' ) ) : ?>
+					Tablet Chair: <?php the_field( 'tablet_chair' ); ?>
+					<?php endif; ?>
+
+					<?php if ( get_field( 'tiered_seating' ) == 1 ) : ?>
+						Tiered Seating
+					<?php else : ?>
+						<?php // echo 'false'; ?>
+					<?php endif; ?>
+
+					<?php if ( get_field( 'whiteboards' ) == 1 ) : ?>
+						Whiteboard
+					<?php else : ?>
+						<?php // echo 'false'; ?>
+					<?php endif; ?>
+
+					<?php if ( get_field( 'windows' ) == 1 ) : ?>
+						Windows
+					<?php else : ?>
+						<?php // echo 'false'; ?>
+					<?php endif; ?>
 					</span>
 				<?php endif; ?>
 			</div>
