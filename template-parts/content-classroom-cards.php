@@ -82,7 +82,7 @@
 			the_post_thumbnail(
 				'medium',
 				array(
-					'alt'   => the_title_attribute(
+					'alt' => the_title_attribute(
 						array(
 							'echo' => false,
 						)
@@ -94,23 +94,34 @@
 			<h2 class="font-heavy font-bold">
 				<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
 			</h2>
-			<div class="flex items-center flex-wrap ">
+			<div>
 				<?php
 				if ( get_field( 'capacity' ) ) :
 					?>
 					<p>
-						<strong>Room Capacity:</strong>
-						<?php the_field( 'capacity' ); ?>
+						<span class="text-primary border-primary border-solid border-2 bg-white font-heavy font-bold text-lg px-2">Capacity: <?php the_field( 'capacity' ); ?></span>
 					</p>
-					<p><strong>Classroom Type:</strong> 
+					<p>
 					<?php
-					$classroom_types = get_the_terms( $post->ID, 'classroom_type' );
-					if ( $classroom_types && ! is_wp_error( $classroom_types ) ) :
-						foreach ( $classroom_types as $classroom_type ) {
-							echo esc_html( $classroom_type->name );
-						}
-					endif;
+						$classroom_types = get_the_terms( $post->ID, 'classroom_type' );
 					?>
+						<span class="text-lg px-2 classroom-type
+						<?php
+						if ( $classroom_types && ! is_wp_error( $classroom_types ) ) :
+							foreach ( $classroom_types as $classroom_type ) {
+								echo esc_html( $classroom_type->slug );
+							}
+						endif;
+						?>
+						">
+						<?php
+						if ( $classroom_types && ! is_wp_error( $classroom_types ) ) :
+							foreach ( $classroom_types as $classroom_type ) {
+								echo esc_html( $classroom_type->name );
+							}
+						endif;
+						?>
+						</span>
 					</p>
 					<span class="hidden">
 						<?php the_field( 'capacity' ); ?>
@@ -202,13 +213,7 @@
 					<?php endif; ?>
 
 					<?php if ( get_field( 'lectern_type' ) ) : ?>
-					<?php the_field( 'lectern_type' ); ?>
-					<?php endif; ?>
-
-					<?php if ( get_field( 'piano' ) == 1 ) : ?>
-						Piano
-					<?php else : ?>
-						<?php // echo 'false'; ?>
+						<?php the_field( 'lectern_type' ); ?>
 					<?php endif; ?>
 
 					<?php if ( get_field( 'power_source' ) ) : ?>
@@ -217,10 +222,6 @@
 
 					<?php if ( get_field( 'table_type' ) ) : ?>
 						<?php the_field( 'table_type' ); ?>
-					<?php endif; ?>
-
-					<?php if ( get_field( 'tablet_chair' ) ) : ?>
-					Tablet Chair: <?php the_field( 'tablet_chair' ); ?>
 					<?php endif; ?>
 
 					<?php if ( get_field( 'tiered_seating' ) == 1 ) : ?>

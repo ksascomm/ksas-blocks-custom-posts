@@ -309,6 +309,31 @@ input[type="url"] {
   }
 }
 
+#classroom-radio-buttons label input {
+  margin-right: .25rem;
+}
+
+.classroom-type {
+	color: white;
+	padding: .25rem;
+}
+
+.classroom-type h3.text-white{
+	color: white !important;
+}
+
+.classroom-type.computer-lab {
+  background: #a15a95;
+}
+
+.classroom-type.instructor-computer {
+	background: #0072ce;
+}
+
+.classroom-type.bring-your-computer {
+	background: #cf4520;
+}
+
 .classroom-field-card-outline {
   border-width: 2px;
   --tw-border-opacity: 1;

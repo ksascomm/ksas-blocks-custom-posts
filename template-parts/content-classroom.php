@@ -36,19 +36,27 @@
 				<?php
 				if ( get_field( 'capacity' ) ) :
 					?>
-					<div class="w-1/2 overflow-hidden rounded-xl bg-grey-cool bg-opacity-50 shadow-md m-4 text-center">
-						<h3 class="uppercase font-heavy">Capacity</h3> 
-						<h3 class="font-serif font-bold"><?php the_field( 'capacity' ); ?></h3>
+					<div class="w-1/2 overflow-hidden rounded-xl text-primary border-primary border-solid border-2 bg-white font-heavy font-bold text-lg px-2 m-4 text-center">
+						<h3 class="uppercase">Capacity</h3> 
+						<h3 class="font-bold"><?php the_field( 'capacity' ); ?></h3>
 					</div>
 				<?php endif; ?>
-					<div class="w-1/2 overflow-hidden rounded-xl  bg-grey-cool bg-opacity-50 shadow-lg m-4 text-center">
-					<h3 class="uppercase font-heavy">Classroom Type</h3>
+					<div class="w-1/2 overflow-hidden rounded-xl m-4 text-center classroom-type 
 						<?php
 						$classroom_types = get_the_terms( $post->ID, 'classroom_type' );
 						if ( $classroom_types && ! is_wp_error( $classroom_types ) ) :
+							foreach ( $classroom_types as $classroom_type ) {
+								echo esc_html( $classroom_type->slug );
+							}
+						endif;
+						?>
+					">
+					<h3 class="uppercase text-white">Classroom Type</h3>
+						<?php
+						if ( $classroom_types && ! is_wp_error( $classroom_types ) ) :
 							foreach ( $classroom_types as $classroom_type ) :
 								?>
-								<h3 class="font-serif font-bold"><?php echo esc_html( $classroom_type->name ); ?> </h3>
+								<h3 class="text-white"><?php echo esc_html( $classroom_type->name ); ?> </h3>
 								<?php
 							endforeach;
 						endif;
