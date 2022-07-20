@@ -40,21 +40,44 @@ $classrooms_query = new WP_Query(
 
 		<div class="isotope-to-sort bg-grey-lightest border-solid border-grey border-2 p-4 mb-4" role="region" aria-label="Filters" id="filters">
 			<h3>Filter by Built-in Equipment:</h3>
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 button-group js-radio-button-group" id="classroom-radio-buttons">
-				<label><input type="checkbox" value=".Built-In-Camera" />Built-In Camera</label>
-				<label><input type="checkbox" value=".Document-Camera" />Document Camera</label>
-				<label><input type="checkbox" value=".Epiphan-Pearl" />Epiphan Pearl</label>
-				<label><input type="checkbox" value=".Laptop-HDMI" />Laptop Connection - HDMI</label>
-				<label><input type="checkbox" value=".Laptop-Wireless" />Laptop Connection - Wireless</label>
-				<label><input type="checkbox" value=".Ceiling-Microphones" />Microphones - Ceiling</label>
-				<label><input type="checkbox" value=".Wireless-Microphone" />Microphones - Wireless</label>
-				<label><input type="checkbox" value=".Projector" />Projector</label>
-				<label><input type="checkbox" value=".Projection-Screen" />Projection Screen</label>
-				<label><input type="checkbox" value=".Conf-Ready" />Recording/Conference Ready</label>
-				<label><input type="checkbox" value=".Student-Computers" />Student Computers</label>
-				<label><input type="checkbox" value=".Zoom-Cart" />Zoom Cart</label>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 button-group js-radio-button-group" id="classroom-checkboxes">
+				<div>
+				<input type="checkbox" id="Built-In-Camera" name="Built-In-Camera" value=".Built-In-Camera" /><label for="Built-In-Camera">Built-In Camera</label>
+				</div>
+				<div>
+				<input type="checkbox" id="Built-in-Computer" name="Built-in-Computer" value=".Built-in-Computer" /><label for="Built-In-Computer">Built-In Computer</label>
+				</div>
+				<div>
+				<input type="checkbox" id="Document-Camera" name="Document-Camera" value=".Document-Camera" /><label for="Document-Camera">Document Camera</label>
+				</div>
+				<div>
+				<input type="checkbox" id="Epiphan-Pearl" name="Epiphan-Pearl" value=".Epiphan-Pearl" /><label for="Epiphan-Pearl">Epiphan Pearl</label>
+				</div>
+				<div>
+				<input type="checkbox" id="Laptop-HDMI" name="Laptop-HDMI" value=".Laptop-HDMI" /><label for="Laptop-HDMI">Laptop Connection - HDMI</label>
+				</div>
+				<div>
+				<input type="checkbox" id="Laptop-Wireless" name="Laptop-Wireless" value=".Laptop-Wireless" /><label for="Laptop-Wireless">Laptop Connection - Wireless</label>
+				</div>
+				<div>
+				<input type="checkbox" id="Ceiling-Microphones" name="Ceiling-Microphones" value=".Ceiling-Microphones" /><label for="Ceiling-Microphones">Microphones - Ceiling</label>
+				</div>
+				<div>
+				<input type="checkbox" id="Wireless-Microphone" name="Wireless-Microphone" value=".Wireless-Microphone" /><label for="Wireless-Microphone">Microphones - Wireless</label>
+				</div>
+				<div>
+				<input type="checkbox" id="Projector" name="Projector" value=".Projector" /><label for="Projector">Projector</label>
+				</div>
+				<div>
+				<input type="checkbox" id="Projection-Screen" name="Projection-Screen" value=".Projection-Screen" /><label for="Projection-Screen">Projection Screen</label>
+				</div>
+				<div>
+				<input type="checkbox" id="Conf-Ready" name="Conf-Ready" value=".Conf-Ready" /><label for="Conf-Ready">Recording/Conference Ready</label>
+				</div>
+				<div>
+				<input type="checkbox" id="Zoom-Cart" name="Zoom-Cart" value=".Zoom-Cart" /><label for="Zoom-Cart">Zoom Cart</label>
+				</div>
 			</div>
-			<!--
 			<?php
 			$filters = get_terms(
 				array(
@@ -67,12 +90,15 @@ $classrooms_query = new WP_Query(
 			if ( ! empty( $filters ) && ! is_wp_error( $filters ) ) :
 				?>
 				<h4>Filter by Classroom Type:</h4>
-				<div class="flex flex-col md:flex-row justify-start button-group js-radio-button-group">
+				<div class="flex flex-col md:flex-row justify-start button-group js-radio-button-group" id="classroom-radio-buttons">
 					<?php foreach ( $filters as $filter ) : ?>
-						<label><input type="checkbox" value="<?php echo esc_html( $filter->slug ); ?>" /><?php echo esc_html( $filter->name ); ?></a>
+						<div class="classroom-type <?php echo esc_html( $filter->slug ); ?>">
+						<input type="radio" id="<?php echo esc_html( $filter->slug ); ?>" name="classroom_type" value=".<?php echo esc_html( $filter->slug ); ?>" /><label for="<?php echo esc_html( $filter->slug ); ?>"><?php echo esc_html( $filter->name ); ?></label>
+						</div>
 					<?php endforeach; ?>
 				</div>
-			<?php endif; ?>-->
+			<?php endif; ?>
+
 			<h4>
 				<label class="heading" for="id_search">Search by Building, Classroom Number, or Equipment:</label>
 			</h4>

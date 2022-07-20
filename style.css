@@ -309,9 +309,10 @@ input[type="url"] {
   }
 }
 
-#classroom-radio-buttons label input {
+#classroom-radio-buttons input, #classroom-checkboxes input, #classroom-radio-buttons .classroom-type {
   margin-right: .25rem;
 }
+
 
 .classroom-type {
 	color: white;
