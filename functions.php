@@ -105,8 +105,8 @@ if ( ! function_exists( 'ksas_blocks_blog_category_meta' ) ) :
 	function ksas_blocks_blog_category_meta() {
 		echo '<div class="post-taxonomies">';
 		$categories = get_the_category();
-		$separator = ' | ';
-		$output = '';
+		$separator  = ' | ';
+		$output     = '';
 		if ( ! empty( $categories ) ) {
 			echo '<span class="cat-links">';
 			foreach ( $categories as $category ) {
@@ -168,3 +168,22 @@ if ( ! function_exists( 'ksas_blocks_blog_entry_meta' ) ) :
 		echo '</div>';
 	}
 endif;
+
+/**
+ * Redirect empty People CPT 'ecpt_bio' meta fields
+ * to whats in 'ecpt_website' meta
+ */
+function redirect_empty_bios() {
+	if ( is_singular( 'people' ) ) {
+		global $post;
+		$bio  = get_post_meta( $post->ID, 'ecpt_bio', true );
+		$link = get_post_meta( $post->ID, 'ecpt_website', true );
+		if ( has_term( array( 'faculty', 'tenured-and-tenure-track-faculty', 'joint-faculty', 'advisory-board' ), 'role' ) ) {
+			if ( empty( $bio ) && isset( $link ) ) {
+				wp_redirect( esc_url( $link ), 301 );
+				exit;
+			}
+		}
+	}
+}
+add_action( 'template_redirect', 'redirect_empty_bios' );
