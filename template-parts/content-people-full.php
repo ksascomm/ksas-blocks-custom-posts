@@ -115,6 +115,16 @@
 			</div>
 			</div>
 		<?php endif; ?>
+		<?php
+			if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) : ?>
+			<div class="tab w-full overflow-hidden">
+			<input class="absolute opacity-0" id="facultybooksTab" type="radio" name="tabs2">
+			<label class="block p-5 leading-normal cursor-pointer font-semi font-semibold" for="facultybooksTab">Faculty Books</label>
+			<div class="tab-content overflow-hidden bg-gray-100 leading-normal">
+			<?php get_template_part( 'template-parts/content', 'faculty-books-excerpt' ); ?>
+			</div>
+			</div>
+		<?php endif; ?>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ) : ?>
 			<div class="tab w-full overflow-hidden">
 			<input class="absolute opacity-0" id="extraTab" type="radio" name="tabs2">

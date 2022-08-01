@@ -66,12 +66,13 @@
 				</a>
 			<?php } ?>
 			</li>
-			<li><?php if ( get_post_meta( $post->ID, 'ecpt_pub_link', true ) ) : ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_pub_link', true ) ) : ?>
+			<li>
 				<a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_pub_link', true ) ); ?>" aria-label="Purchase Online">
 					Purchase Online <span class="fas fa-external-link-square-alt"></span>
 				</a>
-				<?php endif; ?>
 			</li>
+			<?php endif; ?>
 		</ul>
 		<?php
 		if ( is_singular() ) :

@@ -378,7 +378,7 @@ input[type="url"] {
 
 .classroom-field-card img {
   margin-bottom: 0rem;
-margin-top: 0rem;
+  margin-top: 0rem;
 }
 
 
@@ -436,6 +436,30 @@ margin-top: 0rem;
   .faculty-books .entry-content ul.book-meta li {
     padding-left: 0;
   }
+}
+
+.page-template-faculty-books .faculty-books hr {
+  padding-top: 1rem;
+  clear: both;
+}
+
+/*.page-template-faculty-books .faculty-books .entry-content p {
+ line-height: 1.5;
+}*/
+
+.faculty-books-excerpt-tab {
+  clear: both;
+  padding-top: 1rem;
+}
+
+.faculty-books-excerpt-tab h2 {
+  font-size:1.25rem;
+}
+
+.faculty-books-excerpt-tab img.wp-post-image {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  width: 12rem;
 }
 
 /* Graduate Field of Study
