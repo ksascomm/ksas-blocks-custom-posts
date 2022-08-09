@@ -37,6 +37,7 @@ if ( ! empty( $program_types ) ) {
 				<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
 			</h3>
 			<div class="flex items-center flex-wrap ">
+			<?php if ( ! empty( get_post_meta( $post->ID, 'ecpt_associate_name', true ) ) ) : ?>
 				<ul>
 				<?php if ( get_post_meta( $post->ID, 'ecpt_associate_name', true ) ) : ?>
 					<li><strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_associate_name', true ) ); ?></strong></li>
@@ -45,7 +46,7 @@ if ( ! empty( $program_types ) ) {
 					<li><strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_dates', true ) ); ?></strong></li>
 				<?php endif; ?>
 				</ul>
-
+			<?php endif; ?>
 				<?php the_excerpt(); ?>
 
 			</div>
