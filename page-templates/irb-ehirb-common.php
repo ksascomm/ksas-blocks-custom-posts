@@ -90,7 +90,8 @@ $general_ehirb_query     = new WP_Query(
 ?>
 <main id="site-content" class="site-main prose sm:prose lg:prose-lg mx-auto">
 	<?php
-	if ( function_exists( 'bcn_display' ) ) :?>
+	if ( function_exists( 'bcn_display' ) ) :
+		?>
 	<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 		<?php bcn_display(); ?>
 	</div>
@@ -103,7 +104,7 @@ $general_ehirb_query     = new WP_Query(
 
 		endwhile; // End of the loop.
 		?>
-		<div class="documents alignfull bg-grey-lightest">
+		<div class="documents alignfull">
 			<?php
 			if ( $application_ehirb_query->have_posts() ) :
 				?>

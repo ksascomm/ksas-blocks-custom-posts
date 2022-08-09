@@ -102,7 +102,7 @@ $general_ehirb_revised_common_rule_query     = new WP_Query(
 
 		endwhile; // End of the loop.
 		?>
-		<div class="documents alignfull bg-grey-lightest">
+		<div class="documents alignfull">
 		<?php
 		if ( $application_ehirb_revised_common_rule_query->have_posts() ) :
 			?>
