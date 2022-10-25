@@ -16,14 +16,15 @@
 		<h3>
 			<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
 		</h3>
-		<?php if ( get_field( 'fields_of_study' ) ) : ?>
-			<h4><?php the_field( 'fields_of_study' ); ?></h4>
-		<?php endif; ?>
-		<?php if ( get_post_meta( $post->ID, 'ecpt_job', true ) ) : ?>
-			<h4><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_job', true ) ); ?></h4>
-		<?php endif; ?>
-		<?php if ( get_post_meta( $post->ID, 'ecpt_class', true ) ) : ?>
-			<h4>Class of: <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_class', true ) ); ?></h4>
+		<?php if ( have_rows( 'custom_profile_fields' ) ) : ?>
+			<?php
+			while ( have_rows( 'custom_profile_fields' ) ) :
+				the_row();
+				?>
+			<h4><span class="custom-title"><?php the_sub_field( 'custom_title' ); ?></span>&nbsp;<span class="custom-content"><?php the_sub_field( 'custom_content' ); ?></span></h4>
+			<?php endwhile; ?>
+		<?php else : ?>
+			<?php // No rows found! ?>
 		<?php endif; ?>
 		<div class="flex items-center flex-wrap">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_pull_quote', true ) ) : ?>

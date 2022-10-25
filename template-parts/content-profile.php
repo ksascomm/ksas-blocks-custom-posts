@@ -28,11 +28,15 @@
 				)
 			);
 			?>
-		<?php if ( get_post_meta( $post->ID, 'ecpt_job', true ) ) : ?>
-			<h4><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_job', true ) ); ?></h4>
-		<?php endif; ?>
-		<?php if ( get_post_meta( $post->ID, 'ecpt_class', true ) ) : ?>
-			<h4>Class of: <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_class', true ) ); ?></h4>
+		<?php if ( have_rows( 'custom_profile_fields' ) ) : ?>
+			<?php
+			while ( have_rows( 'custom_profile_fields' ) ) :
+				the_row();
+				?>
+			<h4><span class="custom-title"><?php the_sub_field( 'custom_title' ); ?></span>&nbsp;<span class="custom-content"><?php the_sub_field( 'custom_content' ); ?></span></h4>
+			<?php endwhile; ?>
+		<?php else : ?>
+			<?php // No rows found! ?>
 		<?php endif; ?>
 
 		<?php
