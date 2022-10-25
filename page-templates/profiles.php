@@ -15,8 +15,7 @@ get_header();
 $ksas_profile_query = new WP_Query(
 	array(
 		'post_type'      => 'profile',
-		'meta_key'       => 'ecpt_testimonial_alpha',
-		'orderby'        => 'meta_value',
+		'orderby'        => 'title',
 		'order'          => 'ASC',
 		'posts_per_page' => 100,
 	)
