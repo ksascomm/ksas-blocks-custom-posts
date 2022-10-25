@@ -12,7 +12,7 @@ get_header();
 
 <?php
 // Set Research Projects Query Parameters.
-$ksas_testimonial_query = new WP_Query(
+$ksas_profile_query = new WP_Query(
 	array(
 		'post_type'      => 'profile',
 		'meta_key'       => 'ecpt_testimonial_alpha',
@@ -40,12 +40,12 @@ $ksas_testimonial_query = new WP_Query(
 	endwhile; // End of the loop.
 	?>
 	<?php
-	if ( $ksas_testimonial_query->have_posts() ) :
+	if ( $ksas_profile_query->have_posts() ) :
 		?>
 		<div class="flex flex-wrap">
 			<?php
-			while ( $ksas_testimonial_query->have_posts() ) :
-				$ksas_testimonial_query->the_post();
+			while ( $ksas_profile_query->have_posts() ) :
+				$ksas_profile_query->the_post();
 				?>
 				<?php get_template_part( 'template-parts/content', 'profile-card' ); ?>
 				<?php
