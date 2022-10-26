@@ -45,7 +45,7 @@ $classrooms_query = new WP_Query(
 				<input type="checkbox" id="Built-In-Camera" name="Built-In-Camera" value=".Built-In-Camera" /><label for="Built-In-Camera">Built-In Camera</label>
 				</div>
 				<div>
-				<input type="checkbox" id="Built-in-Computer" name="Built-in-Computer" value=".Built-in-Computer" /><label for="Built-In-Computer">Built-In Computer</label>
+				<input type="checkbox" id="Built-In-Computer" name="Built-In-Computer" value=".Built-In-Computer" /><label for="Built-In-Computer">Built-In Computer</label>
 				</div>
 				<div>
 				<input type="checkbox" id="Document-Camera" name="Document-Camera" value=".Document-Camera" /><label for="Document-Camera">Document Camera</label>
