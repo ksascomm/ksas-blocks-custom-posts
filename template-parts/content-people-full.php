@@ -31,11 +31,17 @@
 		<div class="flex-grow">
 			<h2 class="font-heavy my-0">
 			<?php if ( is_singular( 'people' ) ) : ?> 
-				<?php the_title(); ?>
+				<?php the_title(); ?> 
+				<?php if ( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ) : ?>
+					<small>(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</small>
+				<?php endif; ?>
 			<?php else : ?>
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>'s webpage">
 					<?php the_title(); ?>
 				</a>
+				<?php if ( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ) : ?>
+					<small>(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</small>
+				<?php endif; ?>
 			<?php endif; ?>
 			</h2>
 
@@ -116,7 +122,8 @@
 			</div>
 		<?php endif; ?>
 		<?php
-			if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) : ?>
+		if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) :
+			?>
 			<div class="tab w-full overflow-hidden">
 			<input class="absolute opacity-0" id="facultybooksTab" type="radio" name="tabs2">
 			<label class="block p-5 leading-normal cursor-pointer font-semi font-semibold" for="facultybooksTab">Faculty Books</label>
