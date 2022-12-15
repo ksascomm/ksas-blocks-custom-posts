@@ -84,7 +84,6 @@
 		</div>
 	</div>
 	<?php if ( is_singular( 'people' ) ) : ?> 
-		<div class="tab w-full overflow-hidden">
 		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 			<div class="tab w-full overflow-hidden">
 			<input class="absolute opacity-0" id="bioTab" type="radio" name="tabs2" checked>
