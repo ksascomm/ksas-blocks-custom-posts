@@ -232,6 +232,11 @@ summary::-webkit-details-marker {
   padding-right: 1.25rem; /*.p-5*/
 }
 
+.single-people details ol,
+.single-people details ul {
+  padding-left: 2rem;
+}
+
 .tab {
   border: 1px solid #e6e6e6;
 }
