@@ -13,6 +13,10 @@
 
 /* General Styles
 --------------------------------------------- */
+.prose u {
+  text-decoration: none;
+}
+
 .opacity-0 {
   opacity: 0;
 }
