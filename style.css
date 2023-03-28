@@ -194,7 +194,8 @@ input[type="url"] {
 
 /* Accordion Tabs
 --------------------------------------------- */
-.single-people details {
+.single-people details,
+.bulletin details {
   border: 1px solid #e6e6e6;
 }
 
@@ -203,7 +204,8 @@ summary::-webkit-details-marker {
 }
 
 
-.single-people details[open] summary {
+.single-people details[open] summary,
+.bulletin details[open] summary {
   -webkit-transition: max-height 0.35s;
   -o-transition: max-height 0.35s;
   transition: max-height 0.35s;
@@ -215,7 +217,8 @@ summary::-webkit-details-marker {
   color: #002d72; /*.text-blue*/
 }
 
-.single-people details summary::after {
+.single-people details summary::after,
+.bulletin details summary::after {
   float: right;
   width: 1.5em;
   height: 1.5em;
@@ -227,17 +230,21 @@ summary::-webkit-details-marker {
   font-weight: bold; /*.font-bold*/
 }
 
-.single-people details[open] summary::after {
+.single-people details[open] summary::after,
+.bulletin details[open] summary::after {
   content: "\f077";
 }
 
-.single-people details > * {
+.single-people details > *,
+.bulletin details > * {
   padding-left: 1.25rem; /*.p-5*/
   padding-right: 1.25rem; /*.p-5*/
 }
 
 .single-people details ol,
-.single-people details ul {
+.single-people details ul,
+.bulletin details ol,
+.bulletin details ul {
   padding-left: 2rem;
 }
 
@@ -384,6 +391,39 @@ summary::-webkit-details-marker {
 
 .blog-full .entry-content p {
   font-size: 1.25rem;
+}
+
+/* Bulletins
+--------------------------------------------- */
+.single-bulletinboard .bulletinboard .posted-on::before {
+  content:"Posted: ";
+}
+
+.single-bulletinboard .bulletinboard .deadline::before {
+  content:"Deadline: ";
+}
+
+
+.single-bulletinboard .bulletinboard .posted-on,
+.single-bulletinboard .bulletinboard .deadline {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.single-bulletinboard .bulletinboard .deadline {
+  margin-top: -0.5rem;
+margin-bottom: -0.5rem;
+font-family: Gentona-SemiBold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
+}
+
+.bulletin ul.entry-meta {
+  text-transform: capitalize !important;
+  list-style-type: none;
+  padding-left: 1.25rem;
+}
+
+.bulletin ul.entry-meta li {
+  padding-left: 0;
 }
 
 /* Classrooms
