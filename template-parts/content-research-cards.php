@@ -27,8 +27,13 @@ if ( ! empty( $program_types ) ) {
 	echo esc_html( $program_type_name );
 }
 ?>
+<?php
+if ( get_field( 'keywords' ) ) :
+	?>
+	<?php the_field( 'keywords' ); ?>
+<?php endif; ?>
 ">
-	<div class="h-full rounded-lg overflow-hidden field  mb-4 px-6 py-4 overflow-hidden bg-white research-project-card-outline">
+	<div class="h-full rounded-lg overflow-hidden field mb-4 px-6 py-4 overflow-hidden bg-white research-project-card-outline">
 		<div class="p-8">
 			<?php if ( has_post_thumbnail() ) { ?>
 				<?php the_post_thumbnail( 'medium' ); ?>

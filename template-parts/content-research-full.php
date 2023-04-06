@@ -72,29 +72,13 @@
 		<?php
 		the_content();
 		?>
-<!--
-<?php
-if ( get_field( 'endnotes' ) ) :
-	?>
-			<div class="tab w-full overflow-hidden">
-				<input class="absolute opacity-0" id="endnotesTab" type="checkbox" name="tab2">
-				<label class="block p-5 leading-normal cursor-pointer font-semi font-semibold" for="endnotesTab">Endnotes</label>
-				<div class="tab-content overflow-hidden leading-normal">
-					<?php the_field( 'endnotes' ); ?>
-				</div>
-			</div>
-			<?php endif; ?>-->
-			<?php
-			if ( get_field( 'cited_recommended_sources' ) ) :
-				?>
-			<div class="tab w-full overflow-hidden">
-				<input class="absolute opacity-0" id="sourcesTab" type="checkbox" name="tab2">
-				<label class="block p-5 leading-normal cursor-pointer font-semi font-semibold" for="sourcesTab">Cited & Recommended Sources</label>
-				<div class="tab-content overflow-hidden leading-normal">
-				<?php the_field( 'cited_recommended_sources' ); ?>
-				</div>
-			</div>
-			<?php endif; ?>
+
+		<?php
+		if ( get_field( 'endnotes' ) ) :
+			?>
+			<h2>Course Documents</h2>
+			<?php the_field( 'endnotes' ); ?>
+		<?php endif; ?>
 		<?php
 		wp_link_pages(
 			array(
