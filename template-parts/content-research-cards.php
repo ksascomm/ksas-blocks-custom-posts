@@ -27,11 +27,6 @@ if ( ! empty( $program_types ) ) {
 	echo esc_html( $program_type_name );
 }
 ?>
-<?php
-if ( get_field( 'keywords' ) ) :
-	?>
-	<?php the_field( 'keywords' ); ?>
-<?php endif; ?>
 ">
 	<div class="h-full rounded-lg overflow-hidden field mb-4 px-6 py-4 overflow-hidden bg-white research-project-card-outline">
 		<div class="p-8">
@@ -52,8 +47,14 @@ if ( get_field( 'keywords' ) ) :
 				<?php endif; ?>
 				</ul>
 			<?php endif; ?>
+			<?php
+			if ( get_field( 'keywords' ) ) :
+				?>
+				<span class="hidden">
+					<?php the_field( 'keywords' ); ?>
+				</span>
+			<?php endif; ?>
 				<?php the_excerpt(); ?>
-
 			</div>
 		</div>
 	</div>
