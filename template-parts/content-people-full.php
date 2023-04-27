@@ -66,6 +66,15 @@
 					<?php endif; ?>
 					</li>
 				<?php endif; ?>
+				<?php if ( get_field( 'ecpt_cv' ) ) : ?>
+					<span class="fa-solid fa-file-pdf" aria-hidden="true"></span> <a href="<?php the_field( 'ecpt_cv' ); ?>">Curriculum Vitae</a><br>
+				<?php endif; ?>
+				<?php
+				$file = get_field( 'cv_file' );
+				if ( $file ) :
+					?>
+					<span class="fa-solid fa-file-pdf" aria-hidden="true"></span> <a href="<?php echo esc_url( $file['url'] ); ?>">Curriculum Vitae</a><br>
+				<?php endif; ?>
 				<?php if ( get_post_meta( $post->ID, 'ecpt_office', true ) ) : ?>
 					<li><span class="fa-solid fa-location-dot" aria-hidden="true"></span> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_office', true ) ); ?></li>
 				<?php endif; ?>
