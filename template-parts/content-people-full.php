@@ -97,52 +97,84 @@
 			<?php endif; ?>
 		</div>
 	</div>
-	<?php if ( is_singular( 'people' ) ) : ?> 
-		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
-			<details>
-			<summary class="block p-5 leading-normal cursor-pointer font-semi font-semibold">Biography</summary>
-			<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_bio', true ) ); ?>
+	<?php
+	if ( is_singular( 'people' ) ) :
+		?>
+		<div class="tabbed my-4">
+			<ul>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
+				<li>
+				<a href="#section1">Biography</a>
+				</li>
+			<?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_research', true ) ) : ?>
+				<li>
+				<a href="#section2">Research</a>
+				</li>
+			<?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_teaching', true ) ) : ?>
+				<li>
+				<a href="#section3">Teaching</a>
+				</li>
+				<?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_publications', true ) ) : ?>
+				<li>
+				<a href="#section4">Publications</a>
+				</li>
+			<?php endif; ?>
+				<?php
+				if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) :
+					?>
+				<li>
+				<a href="#section5">Faculty Books</a>
+				</li>
+							<?php endif; ?>
+				<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ) : ?>
+				<li><a href="#section6"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ); ?></a></li>
+				<?php endif; ?>
+					<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ) : ?>
+				<li><a href="#section7"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ); ?></a></li>
+				<?php endif; ?>
+			</ul>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
+			<section class="section-content" id="section1">
+					<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_bio', true ) ); ?>
+			</section>
+			<?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_research', true ) ) : ?>
+			<section class="section-content" id="section2">
+					<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_research', true ) ); ?>
+			</section>
+			<?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_teaching', true ) ) : ?>
+			<section class="section-content" id="section3">
+					<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_teaching', true ) ); ?>
+			</section>
+			<?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_publications', true ) ) : ?>
+			<section class="section-content" id="section4">
+					<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_publications', true ) ); ?>
+			</section>
+			<?php endif; ?>
+				<?php
+				if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) :
+					?>
+			<section class="section-content" id="section5">
+					<?php get_template_part( 'template-parts/content', 'faculty-books-excerpt' ); ?>
+			</section>
+				<?php endif; ?>
+				<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab', true ) ) : ?>
+			<section class="section-content" id="section6">
+					<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab', true ) ) ); ?>
+			</section>
+			<?php endif; ?>
 
-		</details>
-		<?php endif; ?>
-		<?php if ( get_post_meta( $post->ID, 'ecpt_research', true ) ) : ?>
-			<details>
-			<summary class="block p-5 leading-normal cursor-pointer font-semi font-semibold">Research</summary>
-				<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_research', true ) ); ?>
-			</details>
-		<?php endif; ?>
-		<?php if ( get_post_meta( $post->ID, 'ecpt_teaching', true ) ) : ?>
-			<details>
-			<summary class="block p-5 leading-normal cursor-pointer font-semi font-semibold">Teaching</summary>
-				<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_teaching', true ) ); ?>
-			</details>
-		<?php endif; ?>
-		<?php if ( get_post_meta( $post->ID, 'ecpt_publications', true ) ) : ?>
-			<details>
-			<summary class="block p-5 leading-normal cursor-pointer font-semi font-semibold">Publications</summary>
-			<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_publications', true ) ); ?>
-			</details>
-		<?php endif; ?>
-		<?php
-		if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) :
-			?>
-			<details>
-			<summary class="block p-5 leading-normal cursor-pointer font-semi font-semibold">Faculty Books</label>
-			<?php get_template_part( 'template-parts/content', 'faculty-books-excerpt' ); ?>
-			</details>
-		<?php endif; ?>
-		<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ) : ?>
-			<details>
-			<summary class="block p-5 leading-normal cursor-pointer font-semi font-semibold"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ); ?></summary>
-			<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab', true ) ) ); ?>
-			</details>
-		<?php endif; ?>
-		<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ) : ?>
-			<details>
-			<summary class="block p-5 leading-normal cursor-pointer font-semi font-semibold"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ); ?></summary>
-			<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab2', true ) ) ); ?>
-			</details>
-		<?php endif; ?>
+				<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab2', true ) ) : ?>
+			<section class="section-content" id="section7">
+					<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab2', true ) ) ); ?>
+			</section>
+			<?php endif; ?>
+		</div>
 	<?php endif; ?>
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">

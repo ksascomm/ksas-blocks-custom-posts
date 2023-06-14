@@ -329,6 +329,90 @@ summary::-webkit-details-marker {
   padding-right: 1.25rem; /*.p-5*/
 }
 
+/* People Post Type Tabs
+--------------------------------------------- */
+
+.prose .tabbed a:hover {
+  border-style: none;
+}
+
+[role="tablist"] {
+  margin-block: 0 !important;
+  margin-bottom: 0px !important;
+  padding: 0px;
+  padding-left: 0px !important;
+}
+
+[role="tablist"] li,
+[role="tablist"] a {
+  display: inline-block;
+}
+
+[role="tablist"] a {
+  text-decoration: none;
+  padding: 0.5rem 1em;
+  display: block;
+  cursor: pointer;
+  border-style: none;
+  padding: 1.25rem;
+  font-family: Gentona-SemiBold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+[role="tablist"] [aria-selected] {
+  background-color: rgb(191 204 217 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.5;
+  --tw-text-opacity: 1;
+  color: rgb(49 38 29 / var(--tw-text-opacity));
+  border-bottom: 0;
+  position: relative;
+  top: 2px;
+}
+
+[role="tabpanel"] {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/*[role="tabpanel"] * + * {
+  margin-top: 0.75rem;
+}*/
+
+@media (max-width: 550px) {
+  [role="tablist"] li,
+  [role="tablist"] a {
+    display: block;
+    position: static;
+  }
+
+  [role="tablist"] [aria-selected] {
+    position: static;
+  }
+
+  [role="tablist"] [aria-selected]::after {
+    content: "\0020⬅";
+  }
+
+  .tabbed [role="tablist"] a:hover {
+    border-width: 2px;
+    border-style: solid;
+    --tw-border-opacity: 1;
+    border-color: rgb(49 38 29 / var(--tw-border-opacity));
+  }
+}
+
+@media (min-width: 551px) {
+  .tabbed [role="tablist"]:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(248 248 248 / var(--tw-bg-opacity));
+  }
+}
+
+
+
 /* Blog Meta
 --------------------------------------------- */
 .blog-excerpt a,
