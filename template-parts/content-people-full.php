@@ -100,6 +100,7 @@
 	<?php
 	if ( is_singular( 'people' ) ) :
 		?>
+		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 		<div class="tabbed my-4">
 			<ul>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
@@ -116,25 +117,25 @@
 				<li>
 				<a href="#section3">Teaching</a>
 				</li>
-				<?php endif; ?>
+			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_publications', true ) ) : ?>
 				<li>
 				<a href="#section4">Publications</a>
 				</li>
 			<?php endif; ?>
-				<?php
-				if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) :
-					?>
+			<?php
+			if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) :
+				?>
 				<li>
 				<a href="#section5">Faculty Books</a>
 				</li>
-							<?php endif; ?>
-				<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ) : ?>
+			<?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ) : ?>
 				<li><a href="#section6"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ); ?></a></li>
-				<?php endif; ?>
-					<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ) : ?>
+			<?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ) : ?>
 				<li><a href="#section7"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ); ?></a></li>
-				<?php endif; ?>
+			<?php endif; ?>
 			</ul>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 			<section class="section-content" id="section1">
@@ -175,6 +176,7 @@
 			</section>
 			<?php endif; ?>
 		</div>
+		<?php endif; ?>
 	<?php endif; ?>
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
