@@ -59,7 +59,7 @@ get_header();
 					</ul>
 					<p>
 						<?php echo wp_trim_words( get_the_excerpt(), 65 ); ?>
-						<a href="<?php the_permalink(); ?>" aria-label="Link to '<?php the_title(); ?>'">Read Full Posting &raquo</a>
+						<a href="<?php the_permalink(); ?>" aria-label="Read Full Posting of '<?php the_title(); ?>'">Read Full Posting &raquo</a>
 					</p>
 				</details>
 			</div>
