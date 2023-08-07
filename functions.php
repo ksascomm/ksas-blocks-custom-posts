@@ -41,6 +41,13 @@ function ksas_blocks_custom_posts_scripts() {
 		wp_enqueue_script( 'isotope-packaged', 'https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js', array(), '3.0.6', true );
 		wp_enqueue_script( 'isotope-classroom-js', get_stylesheet_directory_uri() . '/js/isotope-classroom.js', array( 'jquery' ), '1.0.0', true );
 	endif;
+	if ( is_page_template( 'page-templates/irb-ehirb-common.php' )
+	|| is_page_template( 'page-templates/irb-ehirb.php' )
+	|| is_page_template( 'page-templates/irb-investigators.php' )
+	|| is_page_template( 'page-templates/irb-members.php' )
+	) :
+		wp_enqueue_script( 'wai-accordion', get_stylesheet_directory_uri() . '/js/wai-accordion.js', array( 'jquery' ), '1.0.0', true );
+	endif;
 	if ( is_singular( 'people' ) ) :
 		wp_enqueue_script( 'tabs-js', get_stylesheet_directory_uri() . '/js/tabs.js', array( 'jquery' ), '1.0.0', true );
 	endif;

@@ -39,7 +39,8 @@ $related_members_query = new WP_Query(
 ?>
 <main id="site-content" class="site-main prose sm:prose lg:prose-lg mx-auto">
 	<?php
-	if ( function_exists( 'bcn_display' ) ) :?>
+	if ( function_exists( 'bcn_display' ) ) :
+		?>
 	<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 		<?php bcn_display(); ?>
 	</div>
@@ -53,26 +54,30 @@ $related_members_query = new WP_Query(
 		endwhile; // End of the loop.
 		?>
 
-	<div class="documents alignfull bg-grey-lightest">
+	<div class="documents alignfull">
 		<?php if ( $members_query->have_posts() ) : ?>
 			<h3 class="pt-4 pb-2">Documents & Resources for Members</h3>
+			<div id="Documents-accordionGroup" class="accordion">
 			<?php
 			while ( $members_query->have_posts() ) :
 				$members_query->the_post();
 				?>
 				<?php get_template_part( 'template-parts/content', 'documents-accordion' ); ?>
 			<?php endwhile; ?>
+			</div>
 		<?php endif; ?>
 		<?php
 		if ( $related_members_query->have_posts() ) :
 			?>
 			<h3 class="pt-4 pb-2">Related Documents & Resources</h3>
+			<div id="Related-accordionGroup" class="accordion">
 			<?php
 			while ( $related_members_query->have_posts() ) :
 				$related_members_query->the_post();
 				?>
 				<?php get_template_part( 'template-parts/content', 'documents-accordion' ); ?>
 			<?php endwhile; ?>
+			</div>
 		<?php endif; ?>
 		<?php wp_reset_postdata();  // Restore global post data stomped by the_post(). ?>
 	</div>
