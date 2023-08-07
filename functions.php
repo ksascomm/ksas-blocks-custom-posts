@@ -53,6 +53,27 @@ function ksas_blocks_custom_posts_scripts() {
 	endif;
 }
 
+
+/**
+ * Dequeue KSAS-SIS-Courses plugin assets on non-SIS Courses template
+ *
+ * Hooked to the wp_print_scripts action, with a late priority (100),
+ * so that it is after the script was enqueued.
+ */
+function dequeue_sis_scripts() {
+	if ( ! is_page_template( '../templates/courses-undergrad-ksasblocks.php' ) ) {
+		wp_dequeue_style( 'data-tables' );
+		wp_dequeue_style( 'data-tables-searchpanes' );
+		wp_dequeue_style( 'courses-css' );
+		wp_dequeue_script( 'data-tables' );
+		wp_dequeue_script( 'data-tables-searchpanes' );
+		wp_dequeue_script( 'data-tables-select' );
+		wp_dequeue_script( 'courses-js' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'dequeue_sis_scripts', 100 );
+
+
 /**
  * Create function to print Role taxonomy on people-sort template part
  *
