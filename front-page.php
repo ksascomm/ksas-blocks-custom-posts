@@ -18,9 +18,10 @@ get_header();
 			?>
 			<?php
 			// AGHI website conditional.
+			$aghi_site_id  = get_current_blog_id();
 			$aghi_site_url = get_blog_details( '82' )->path;
 			// Double check Site ID #82 == "/humanities-institute/" slug!
-			if ( $aghi_site_url === '/humanities-institute/' ) :
+			if ( $aghi_site_url === '/humanities-institute/' && $aghi_site_id == 82 ) :
 				get_template_part( 'template-parts/content', 'front-aghi' );
 			else :
 				get_template_part( 'template-parts/content', 'front' );
