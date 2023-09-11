@@ -23,7 +23,7 @@
 					$random_img_title   = $random_images[0]['homepage_hero_image']['title'];
 					$random_img_caption = $random_images[0]['homepage_hero_caption'];
 					?>
-					<img class="!mt-0 h-56 w-full object-cover sm:h-72 lg:w-full lg:h-full" id="slide-<?php echo esc_html( $random_img_title ); ?>" src="<?php echo esc_url( $random_img_url ); ?>" alt="<?php echo esc_html( $random_img_alt ); ?>" />
+					<img class="!mt-0 h-56 w-full object-cover sm:h-72 lg:w-full lg:h-full" src="<?php echo esc_url( $random_img_url ); ?>" alt="<?php echo esc_html( $random_img_alt ); ?>" />
 					<div class="caption not-prose">
 						<p><?php echo wp_kses_post( $random_img_caption ); ?></p>
 					</div>
