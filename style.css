@@ -13,6 +13,11 @@
 
 /* General Styles
 --------------------------------------------- */
+.wp-element-caption {
+  color: #31261d;
+}
+
+
 .prose u {
   text-decoration: none;
 }
