@@ -13,9 +13,10 @@
 
 /* General Styles
 --------------------------------------------- */
-.wp-element-caption {
+.wp-element-caption, .wp-caption-text, .wp-block-image figcaption {
   color: #31261d;
 }
+  
 
 
 .prose u {
