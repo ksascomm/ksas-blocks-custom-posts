@@ -23,13 +23,6 @@ $classrooms_query = new WP_Query(
 
 <main id="site-content" class="site-main prose mx-auto pb-2">
 	<?php
-	if ( function_exists( 'bcn_display' ) ) :
-		?>
-	<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-		<?php bcn_display(); ?>
-	</div>
-	<?php endif; ?>
-	<?php
 	while ( have_posts() ) :
 		the_post();
 
