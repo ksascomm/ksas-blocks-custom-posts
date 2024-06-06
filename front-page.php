@@ -41,7 +41,7 @@ get_header();
 		<div class="divider div-transparent div-dot"></div>
 
 		<div class="news-section mb-24 px-2 sm:px-0">
-			<div class="prose sm:prose lg:prose-lg xl:prose-xl mx-auto">
+			<div class="prose lg:prose-lg xl:prose-xl mx-auto my-4 px-4">
 				<div class="flex justify-between">
 					<div>
 						<h2><?php echo esc_html( $heading ); ?>
@@ -52,6 +52,7 @@ get_header();
 					</div>
 				</div>
 			</div>
+			<div class="grid grid-cols-1 lg:grid-cols-3 gap-4 p-4 mx-auto">
 			<?php
 			$news_query = new WP_Query(
 				array(
@@ -82,12 +83,13 @@ get_header();
 				if ( $news_query->have_posts() ) :
 					while ( $news_query->have_posts() ) :
 						$news_query->the_post();
-						get_template_part( 'template-parts/content', 'post-excerpt' );
+						get_template_part( 'template-parts/content', 'front-post-excerpt' );
 					endwhile;
 			endif;
 		endif;
 			?>
 		</div>
+	</div>
 		<?php else : // If Show Homepage News Feed is NOT checked. ?>
 
 		<?php endif; // end of if  show_homepage_news_feed logic. ?>
