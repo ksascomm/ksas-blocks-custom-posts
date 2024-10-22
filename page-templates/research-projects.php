@@ -22,7 +22,7 @@ $flagship_researchprojects_query = new WP_Query(
 );
 ?>
 
-<main id="site-content" class="site-main prose mx-auto pb-2">
+<main id="site-content" class="site-main prose mx-auto pb-2 mb-12">
 	
 	<?php
 	while ( have_posts() ) :
@@ -32,7 +32,7 @@ $flagship_researchprojects_query = new WP_Query(
 
 	endwhile; // End of the loop.
 	?>
-	<div class="isotope-to-sort bg-grey-lightest border-solid border-grey border-2 p-4 mb-4" role="region" aria-label="Filters">
+	<form class="isotope-to-sort bg-grey-lightest border-solid border-grey border-2 p-4 mb-4" role="region" aria-label="Filters">
 		<?php
 			$projects = get_terms(
 				'project_type',
@@ -44,20 +44,20 @@ $flagship_researchprojects_query = new WP_Query(
 			);
 			?>
 	<?php if ( ! empty( $projects ) ) : ?>
-		<h3 class="text-2xl -mt-2">Filter by type or area:</h3>
-		<div class="flex flex-col md:flex-row justify-start" id="filters">
+		
+		<fieldset class="flex flex-col md:flex-row justify-start" id="filters">
+		<legend class="text-2xl -mt-2">Filter by type or area:</legend>
 			<?php foreach ( $projects as $project ) : ?>
-				<a class="all button bg-blue text-white hover:bg-blue-light hover:text-primary text-base p-1" href="javascript:void(0)" data-filter=".<?php echo esc_html( $project->slug ); ?>" class="selected"><?php echo esc_html( $project->name ); ?></a>
+				<button class="all button bg-blue text-white hover:bg-blue-light hover:text-primary text-base p-1" href="javascript:void(0)" data-filter=".<?php echo esc_html( $project->slug ); ?>"><?php echo esc_html( $project->name ); ?></button>
 			<?php endforeach; ?>
-		</div>
+		</fieldset>
 	<?php endif; ?>
-		<h4>
-			<label class="heading" for="id_search">Search by keyword:</label>
-		</h4>
-		<div class="w-auto">
-			<input class="w-3/4 quicksearch rounded-r-lg p-2 border-t border-b border-r bg-white" type="text" name="search" id="id_search" aria-label="Search Fields of Study" placeholder="Enter description keyword"/>
-		</div>
-	</div>
+		<fieldset class="w-auto search-form my-2 px-2">
+			<legend class="mt-4 mb-2">Search by keyword:</legend>
+			<label class="sr-only" for="id_search">Enter term</label>
+			<input class="quicksearch ml-2 p-2 form-input w-full md:w-1/2" type="text" name="search" id="id_search" aria-label="Search Form" placeholder="Enter description keyword"/>
+		</fieldset>
+	</form>
 	<?php
 	if ( $flagship_researchprojects_query->have_posts() ) :
 		?>
@@ -72,7 +72,7 @@ $flagship_researchprojects_query = new WP_Query(
 				endwhile;
 			?>
 			<div id="noResult">
-				<h2>No matching results</h2>
+				<span>No matching results</span>
 			</div>
 		</div>
 	</div>

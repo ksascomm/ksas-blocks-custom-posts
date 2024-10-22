@@ -98,14 +98,14 @@
 				<?php
 				if ( get_field( 'capacity' ) ) :
 					?>
-					<p>
-						<span class="text-primary border-primary border-solid border-2 bg-white font-heavy font-bold text-lg px-2">Capacity: <?php the_field( 'capacity' ); ?></span>
-					</p>
-					<p>
+					<div class="my-2">
+						<span class="text-primary border-primary border-solid border-2 bg-white font-heavy font-bold text-xl px-2">Capacity: <?php the_field( 'capacity' ); ?></span>
+					</div>
+					<div class="my-2">
 					<?php
 						$classroom_types = get_the_terms( $post->ID, 'classroom_type' );
 					?>
-						<span class="text-lg px-2 classroom-type
+						<span class="text-xl px-2 my-2 classroom-type
 						<?php
 						if ( $classroom_types && ! is_wp_error( $classroom_types ) ) :
 							foreach ( $classroom_types as $classroom_type ) {
@@ -122,8 +122,8 @@
 						endif;
 						?>
 						</span>
-					</p>
-					<span class="hidden">
+					</div>
+					<div class="hidden">
 						<?php the_field( 'capacity' ); ?>
 						<?php
 						if ( get_field( 'projector' ) == 'Yes' ) :
@@ -241,7 +241,7 @@
 					<?php else : ?>
 						<?php // echo 'false'; ?>
 					<?php endif; ?>
-					</span>
+					</div>
 				<?php endif; ?>
 			</div>
 		</div>

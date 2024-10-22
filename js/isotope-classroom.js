@@ -3,7 +3,9 @@
  *
  * Customized isotope script for Classrooms Template
  */
- jQuery(document).ready(function($) {
+jQuery(document).ready(function($) {
+    // initially hide noresult box on page load
+    $("#noResult").hide();
 
     var filter = $('#filters');
     var suche = $('#id_search');
@@ -26,6 +28,13 @@
     var quicksearch = suche.keyup(debounce(function() {
         qsRegex = new RegExp(quicksearch.val(), 'gi');
         $grid.isotope();
+              // display message box if no filtered items
+
+      if (!$grid.data("isotope").filteredItems.length) {
+        $("#noResult").show();
+      } else {
+        $("#noResult").hide();
+      }
     }, 200));
 
 

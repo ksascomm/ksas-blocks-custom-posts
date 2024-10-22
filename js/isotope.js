@@ -1,7 +1,7 @@
 /**
  * File isotope.js.
  *
- * Customized isotope script for Research Projects Page Template
+ * Customized isotope script for People Directory Page Template
  */
 
 jQuery(document).ready(function ($) {
@@ -54,7 +54,7 @@ jQuery(document).ready(function ($) {
     };
   }
 
-  $("#filters a.button").click(function (event) {
+  $("#filters button").click(function (event) {
     event.preventDefault();
   });
 
@@ -66,7 +66,7 @@ jQuery(document).ready(function ($) {
   // 4. Pass filter value to Isotope to repaint.
 
   // Wire filter buttons to generate URL hash, ie "...#filter=.design"
-  $("#filters a.button").on("click", function () {
+  $("#filters button").on("click", function () {
     if ($(this).hasClass("is-checked")) {
       $(this).removeClass("is-checked");
       location.hash = "filter=*";
@@ -83,7 +83,7 @@ jQuery(document).ready(function ($) {
     hashFilter = getHashFilter();
 
     if (hashFilter) {
-      $("#filters").find("a.is-checked").removeClass("is-checked");
+      $("#filters").find(".is-checked").removeClass("is-checked");
       $("#filters")
         .find('[data-filter="' + hashFilter + '"]')
         .addClass("is-checked");
@@ -116,4 +116,49 @@ jQuery(document).ready(function ($) {
       }, 1000);
     });
   })(jQuery);
+  (function() {
+    // Set searchField to the search input field.
+    // Set timeout to the time you want to wait after the last character in milliseconds.
+    // Set minLength to the minimum number of characters that constitutes a valid search.
+    var searchField = document.querySelector('#id_search'),
+      timeout = 1500,
+      minLength = 3;
+  
+    var textEntered = false;
+  
+    var timer, searchText;
+    
+    var handleInput = function() {
+      searchText = searchField ? searchField.value : '';
+      if (searchText.length < minLength) {
+      return;
+      }
+      window.dataLayer.push({
+      'event': 'peopledirectoryInput',
+      'searchTerm': searchText
+      });
+      textEntered = false;
+    };
+    
+    var startTimer = function(e) {
+      textEntered = true;
+      window.clearTimeout(timer);
+      if (e.keyCode === 13) {
+      handleInput();
+      return;
+      }
+      timer = setTimeout(handleInput, timeout);
+    };
+    
+    if (searchField !== null) {
+      searchField.addEventListener('keydown', startTimer, true);
+      searchField.addEventListener('blur', function() {
+      if (textEntered) {
+        window.clearTimeout(timer);
+        handleInput();
+      }
+      }, true);
+    }
+    })();
 });
+

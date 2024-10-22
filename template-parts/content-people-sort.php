@@ -10,7 +10,7 @@
 ?>
 
 
-<article id="post-<?php the_ID(); ?>" class="people item py-4 ml-4 w-full <?php echo esc_html( get_the_roles( $post ) ); ?> <?php echo esc_html( get_the_filters( $post ) ); ?>">
+<article id="post-<?php the_ID(); ?>" class="people item p-4 lg:px-0 lg:py-4 my-2 lg:my-0 lg:ml-4 w-11/12 lg:w-full <?php echo esc_html( get_the_roles( $post ) ); ?> <?php echo esc_html( get_the_filters( $post ) ); ?>">
 
 <div class="flex flex-wrap lg:flex-nowrap">
 	<?php if ( has_post_thumbnail() ) : ?>
@@ -30,7 +30,7 @@
 		</div>
 	<?php endif; ?>
 	<div class="flex-grow contact-info">
-		<h2 class="font-heavy">
+		<h3 class="font-heavy">
 		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>'s webpage">
 				<?php the_title(); ?>
@@ -51,27 +51,23 @@
 					<small>(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</small>
 				<?php endif; ?>
 		<?php endif; ?>
-		</h2>
+		</h3>
 
 		<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
 				<div class="position"><p class="leading-normal pr-2"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></p></div>
 			<?php endif; ?>
 
-			<h3 class="sr-only">Contact Information</h3>
+			<h4 class="sr-only">Contact Information</h4>
 
 			<ul role="list">
 				<?php
 				if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
 					$email = get_post_meta( $post->ID, 'ecpt_email', true );
 					?>
-				<li><span class="fa-solid fa-at" aria-hidden="true"></span>
-					<?php if ( function_exists( 'email_munge' ) ) : ?>
-					<a class="munge" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;<?php echo email_munge( $email ); ?>">
-						<?php echo email_munge( $email ); ?>
-					</a>
-					<?php else : ?>
-					<a href="<?php echo esc_url( 'mailto:' . $email ); ?>"><?php echo esc_html( $email ); ?></a>
-					<?php endif; ?>
+					<li><span class="fa-solid fa-envelope" aria-hidden="true"></span>
+						<a href="<?php echo esc_url( 'mailto:' . antispambot( $email ) ); ?>">
+					<?php echo esc_html( $email ); ?>
+						</a>
 					</li>
 				<?php endif; ?>
 				<?php if ( get_post_meta( $post->ID, 'ecpt_office', true ) ) : ?>

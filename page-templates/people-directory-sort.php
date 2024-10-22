@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="site-content" class="site-main prose sm:prose lg:prose-lg mx-auto">
+	<main id="site-content" class="site-main prose sm:prose lg:prose-lg mx-auto mb-12">
 	
 		<?php
 		while ( have_posts() ) :
@@ -20,9 +20,9 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-		<div class="isotope-to-sort bg-grey-lightest border-solid border-grey border-2 p-4 mb-4" role="region" aria-label="Filters" id="filters">
-			<h3>Filter by Position or Title:</h3>
-			<div class="flex flex-col md:flex-row justify-start">
+		<form class="isotope-to-sort bg-grey-lightest border-solid border-grey border-2 p-4 mx-2 lg:mx-0 my-4" id="filters">
+			<fieldset class="flex-col lg:flex-row justify-start">
+				<legend class="mb-2">Filter by Position or Title:</legend>
 				<?php
 				$positions = get_terms(
 					array(
@@ -34,9 +34,11 @@ get_header();
 				);
 				?>
 				<?php foreach ( $positions as $position ) : ?>
-					<a class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary p-2" href="javascript:void(0)" data-filter=".<?php echo esc_html( $position->slug ); ?>" class="selected"><?php echo esc_html( $position->name ); ?></a>
+					<button class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary p-2" href="javascript:void(0)" data-filter=".<?php echo esc_html( $position->slug ); ?>">
+						<?php echo esc_html( $position->name ); ?>
+					</button>
 				<?php endforeach; ?>
-			</div>
+			</fieldset>
 			<?php
 			$filters = get_terms(
 				array(
@@ -48,20 +50,19 @@ get_header();
 			);
 			if ( ! empty( $filters ) && ! is_wp_error( $filters ) ) :
 				?>
-				<h4>Filter by Area of Expertise:</h4>
-				<div class="flex flex-col md:flex-row justify-start">	
+				<fieldset class="flex flex-col md:flex-row flex-wrap justify-start">
+					<legend class="mt-6 mb-2">Filter by Area of Expertise:</legend>
 					<?php foreach ( $filters as $filter ) : ?>
-						<a class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary p-2" href="javascript:void(0)" data-filter=".<?php echo esc_html( $filter->slug ); ?>" class="selected"><?php echo esc_html( $filter->name ); ?></a>
+						<button class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary p-2" href="javascript:void(0)" data-filter=".<?php echo esc_html( $filter->slug ); ?>"><?php echo esc_html( $filter->name ); ?></button>
 					<?php endforeach; ?>
-				</div>
+				</fieldset>
 			<?php endif; ?>
-			<h4>
-				<label class="heading" for="id_search">Search by name, title, or research interests:</label>
-			</h4>
-			<div class="w-auto">
-				<input class="w-3/4 quicksearch rounded-r-lg p-2 border-t border-b border-r bg-white" type="text" name="search" id="id_search" aria-label="Search Fields of Study" placeholder="Enter description keyword"/>
-			</div>
-		</div>
+			<fieldset class="w-auto search-form my-2 px-2">
+				<legend class="mt-4 mb-2">Search by name, title, or research interests:</legend>
+				<label class="sr-only" for="id_search">Enter term</label>
+				<input class="quicksearch ml-2 p-2 form-input w-full md:w-1/2" type="text" name="search" id="id_search" aria-label="Search Form" placeholder="Enter description keyword"/>
+			</fieldset>
+		</form>
 		<div class="mt-8" id="isotope-list" >
 			<div class="flex flex-wrap">
 		<?php
@@ -94,8 +95,10 @@ get_header();
 				if ( $people_query->have_posts() ) :
 					?>
 					<div class="item pt-2 w-full role-title quicksearch-match <?php echo esc_html( $position->slug ); ?>">
-						<h3 class="uppercase"><?php echo esc_html( $position_name ); ?> </h2>
-					</div>	
+						<h2 class="uppercase">
+							<?php echo esc_html( $position_name ); ?>
+						</h2>
+					</div>
 					<?php
 					while ( $people_query->have_posts() ) :
 						$people_query->the_post();
@@ -108,12 +111,13 @@ get_header();
 				endif;
 			endforeach;
 			?>
-				<div id="noResult">
-					<h2>No matching results</h2>
-				</div>
+			<div id="noResult">
+				<span>No matching results</span>
+			</div>
 			<?php
 			wp_reset_postdata();
 			?>
+			</div>
 		</div>
 	</main><!-- #main -->
 

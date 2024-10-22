@@ -32,13 +32,14 @@
 				);
 				?>
 				</div>
+				<h2 class="sr-only">Classroom Overview</h2>
 				<div class="flex classroom-callouts">
 				<?php
 				if ( get_field( 'capacity' ) ) :
 					?>
 					<div class="w-1/2 overflow-hidden rounded-xl text-primary border-primary border-solid border-2 bg-white font-heavy font-bold text-lg px-2 m-4 text-center">
 						<h3 class="uppercase">Capacity</h3> 
-						<h3 class="font-bold"><?php the_field( 'capacity' ); ?></h3>
+						<div class="font-bold"><?php the_field( 'capacity' ); ?></div>
 					</div>
 				<?php endif; ?>
 					<div class="w-1/2 overflow-hidden rounded-xl m-4 text-center classroom-type 
@@ -56,7 +57,7 @@
 						if ( $classroom_types && ! is_wp_error( $classroom_types ) ) :
 							foreach ( $classroom_types as $classroom_type ) :
 								?>
-								<h3 class="text-white"><?php echo esc_html( $classroom_type->name ); ?> </h3>
+								<div class="text-white"><?php echo esc_html( $classroom_type->name ); ?> </div>
 								<?php
 							endforeach;
 						endif;
@@ -67,7 +68,7 @@
 				<?php
 				if ( get_field( 'comments' ) ) :
 					?>
-				<h4>Classroom Notes</h4>
+				<h3>Classroom Notes</h3>
 					<?php the_field( 'comments' ); ?>
 				<?php endif; ?>
 			</div>

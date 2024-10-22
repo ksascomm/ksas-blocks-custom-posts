@@ -60,60 +60,17 @@ get_header();
 					'posts_per_page' => $news_quantity,
 				)
 			);
-			?>
-			<?php
-			if ( get_field( 'blog_theme', 'option' ) ) :
-				// If ACF Setting Blog Theme is checked.
-				?>
-				<div class="grid grid-cols-1 lg:grid-cols-3 gap-4 p-4 mx-auto" style="max-width:110ch;">
-				<?php
-				if ( $news_query->have_posts() ) :
-					while ( $news_query->have_posts() ) :
-						$news_query->the_post();
-						get_template_part( 'template-parts/content', 'blog-teaser' );
-				endwhile;
-				endif;
-				?>
-				</div>
-				<?php
-			else :
-				// If ACF Setting Blog Theme is NOT checked.
-				?>
-				<?php
+
 				if ( $news_query->have_posts() ) :
 					while ( $news_query->have_posts() ) :
 						$news_query->the_post();
 						get_template_part( 'template-parts/content', 'front-post-excerpt' );
 					endwhile;
-			endif;
-		endif;
+				endif;
 			?>
+			</div>
 		</div>
-	</div>
-		<?php else : // If Show Homepage News Feed is NOT checked. ?>
-
 		<?php endif; // end of if  show_homepage_news_feed logic. ?>
-
-		<?php
-
-		if ( get_field( 'hub_api', 'option' ) ) :
-			// If ACF Conditional is YES, display Hub Feed.
-			?>
-	<div class="divider div-transparent div-dot"></div>
-		<div class="news-section mb-24 px-2 sm:px-0">
-				<div class="prose sm:prose lg:prose-lg xl:prose-xl mx-auto">
-					<div class="flex justify-between">
-						<div>
-						<h2>Related News from <a href="https://hub.jhu.edu/" aria-label="The Hub">The Hub</a></h2>
-						</div>
-					</div>
-				</div>
-				<?php get_template_part( 'template-parts/content', 'hub-api' ); ?>
-		</div>
-		<?php else : // field_name returned false. ?>
-
-		<?php endif; // end of if field_name logic. ?>
-
 	</main><!-- #main -->
 
 <?php
